@@ -12,6 +12,7 @@
     <meta property="og:description" content="Koki :  Restaurant Admin Dashboard  Bootstrap 5 Template" />
     <meta property="og:image" content="social-image.png" />
     <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Koki - داشبورد مدیریت رستوران </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
@@ -1147,46 +1148,91 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div id="wizard_Service" class="tab-pane" role="tabpanel">
-                                            <div class="row">
+                                            <div class="row mb-5">
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">نام *</label>
-                                                        <input type="text" name="firstName" class="form-control"
-                                                            placeholder="آرزو" required>
+                                                        <input type="text" onkeyup="firstNameValidation(this)"
+                                                            name="firstName" class="form-control"
+                                                            placeholder="نام خود را وارد کنید . . ." required>
+                                                        <div id="firstNameValidationMessage" class="invalid-feedback">
+                                                            ...
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">نام خانوادگی *</label>
-                                                        <input type="text" name="lastName" class="form-control"
-                                                            placeholder="حسینی" required>
+                                                        <input type="text" onkeyup="lastNameValidation(this)"
+                                                            name="lastName" class="form-control"
+                                                            placeholder="نام خانوادگی خود را وارد کنید . . ." required>
+                                                        <div id="lastNameValidationMessage" class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> آدرس ایمیل *</label>
-                                                        <input type="email" class="form-control"
+                                                        <input type="email" name="email" class="form-control"
+                                                            onkeyup="emailValidation(this)"
                                                             id="inputGroupPrepend2"
                                                             aria-describedby="inputGroupPrepend2"
                                                             placeholder="example@example.com" required>
+                                                            <div id="emailValidationMessage" class="invalid-feedback">
+                                                                ....
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label"> شماره تلفن *</label>
-                                                        <input type="text" name="phoneNumber" class="form-control"
-                                                            placeholder="657-9007- 21 (98+)" required>
+                                                        <label class="text-label">  شماره تلفن همراه *</label>
+                                                        <input type="text" onkeyup="phoneNumberValidation(this)" name="phoneNumber" class="form-control"
+                                                            placeholder="09123456789" required>
+                                                            <div id="phoneNumberValidationMessage" class="invalid-feedback">
+                                                                ....
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 mb-3">
                                                     <div class="form-group">
-                                                        <label class="text-label"> آدرس *</label>
-                                                        <input type="text" name="place" class="form-control"
+                                                        <label class="text-label">نشانی منزل*</label>
+                                                        <input type="text" placeholder="مشهد - بلوار شهید سلیمانی" onkeyup="homePlaceValidation(this)" name="homePlace" class="form-control"
                                                             required>
+                                                            <div id="homePlaceValidationMessage" class="invalid-feedback">
+                                                                ....
+                                                            </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-lg-6 mb-2">
+                                                    <div class="form-group">
+                                                        <label class="text-label"> رمز عبور *</label>
+                                                        <input type="password" onkeyup="passwordValidation(this)" name="password" class="form-control"
+                                                            placeholder="رمز عبور خود را وارد کنید" required>
+                                                            <div id="passwordValidationMessage" class="invalid-feedback">
+                                                                ....
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mb-2">
+                                                    <div class="form-group">
+                                                        <label class="text-label"> تایید رمز عبور *</label>
+                                                        <input type="password" onkeyup="confirmPasswordValidation(this)" name="confirmPassword"
+                                                            class="form-control"
+                                                            placeholder="رمز عبور را دوباره وارد کنید" required>
+                                                            <div id="confirmPasswordValidationMessage" class="invalid-feedback">
+                                                                ....
+                                                            </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 mb-3">
+                                                    <button onclick="getPersonalInformation(event)" type="button"
+                                                        class="btn btn-primary mb-2 ml-2">ارسال</button>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div id="wizard_Time" class="tab-pane" role="tabpanel">
                                             <div class="row">
                                                 <div class="col-lg-6 mb-2">
@@ -1220,6 +1266,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div id="wizard_Details" class="tab-pane" role="tabpanel">
                                             <div class="row">
                                                 <div class="col-sm-4 mb-2">
@@ -1307,6 +1354,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div id="wizard_Payment" class="tab-pane" role="tabpanel">
                                             <div class="row emial-setup">
                                                 <div class="col-lg-3 col-sm-6 col-6">
@@ -1414,7 +1462,8 @@
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
-
+    <script src="{{ asset('js/register-seller/validation.js') }}"></script>
+    <script src="{{ asset('js/register-seller/getPersonalInformation.js') }}"></script>
 
     <script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>
     <script>

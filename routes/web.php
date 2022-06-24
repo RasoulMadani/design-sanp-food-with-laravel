@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Seller\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/public/register-seller',[RegisterController::class,'showPageRegister']);
+Route::post('/public/register-seller/get-personal-information',[RegisterController::class,'getPersonalInformation']);
