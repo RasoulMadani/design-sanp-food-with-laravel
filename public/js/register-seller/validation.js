@@ -1,12 +1,12 @@
 // in the name of allah
 let payam = {
-    firstName: "1",
-    lastName: "1",
-    email: "1",
-    phoneNumber: "1",
-    homePlace: "1",
-    password: "1",
-    confirmPassword: "1",
+    firstName: "first",
+    lastName: "last",
+    email: "email",
+    phoneNumber: "phone",
+    homePlace: "homePlace",
+    password: "password",
+    confirmPassword: "confirm",
 };
 function firstNameValidation(event) {
     document.getElementById("firstNameValidationMessage").style.display =
@@ -17,7 +17,7 @@ function firstNameValidation(event) {
             "block";
         document.getElementById("firstNameValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.firstName = "1";
+        payam.firstName = "frist";
         return false;
     }
     if (!isNaN(firstName)) {
@@ -25,7 +25,7 @@ function firstNameValidation(event) {
             "block";
         document.getElementById("firstNameValidationMessage").innerHTML =
             "برای پر کردن از حروف استفاده کنید";
-        payam.firstName = "1";
+        payam.firstName = "first";
         return false;
     }
     if (firstName.length < 3) {
@@ -33,7 +33,7 @@ function firstNameValidation(event) {
             "block";
         document.getElementById("firstNameValidationMessage").innerHTML =
             "نام باید بیش از دو حرف باشد";
-        payam.firstName = "1";
+        payam.firstName = "first";
         return false;
     }
     payam.firstName = "";
@@ -46,7 +46,7 @@ function lastNameValidation(event) {
             "block";
         document.getElementById("lastNameValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.lastName = "1";
+        payam.lastName = "last";
         return false;
     }
     if (!isNaN(inputValue)) {
@@ -54,7 +54,7 @@ function lastNameValidation(event) {
             "block";
         document.getElementById("lastNameValidationMessage").innerHTML =
             "برای پر کردن از حروف استفاده کنید";
-        payam.lastName = "1";
+        payam.lastName = "last";
         return false;
     }
     if (inputValue.length < 3) {
@@ -62,7 +62,7 @@ function lastNameValidation(event) {
             "block";
         document.getElementById("lastNameValidationMessage").innerHTML =
             "نام باید بیش از دو حرف باشد";
-        payam.lastName = "1";
+        payam.lastName = "last";
 
         return false;
     }
@@ -76,7 +76,7 @@ function emailValidation(event) {
             "block";
         document.getElementById("emailValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.email = "1";
+        payam.email = "email";
         return false;
     }
     let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -86,7 +86,7 @@ function emailValidation(event) {
             "block";
         document.getElementById("emailValidationMessage").innerHTML =
             "لطفا یک رایانامه ی معتبر وارد کنید";
-        payam.email = "1";
+        payam.email = "email";
         return false;
     }
     payam.email = "";
@@ -102,7 +102,7 @@ function phoneNumberValidation(event) {
             "block";
         document.getElementById("phoneNumberValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.phoneNumber = "1";
+        payam.phoneNumber = "phone";
         return false;
     }
     let reMobile = /^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/;
@@ -114,7 +114,7 @@ function phoneNumberValidation(event) {
             "block";
         document.getElementById("phoneNumberValidationMessage").innerHTML =
             "لطفا یک شماره ی معتبر وارد کنید";
-        payam.phoneNumber = "1";
+        payam.phoneNumber = "phone";
         return false;
     }
     payam.phoneNumber = "";
@@ -129,7 +129,7 @@ function homePlaceValidation(event) {
             "block";
         document.getElementById("homePlaceValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.homePlace = "1";
+        payam.homePlace = "homePlace";
         return false;
     }
     if (inputValue.length < 30) {
@@ -137,7 +137,7 @@ function homePlaceValidation(event) {
             "block";
         document.getElementById("homePlaceValidationMessage").innerHTML =
             "نشانی باید بیش از 30 حرف باشد";
-        payam.homePlace = "1";
+        payam.homePlace = "homePlace";
         return false;
     }
     payam.homePlace = "";
@@ -151,7 +151,7 @@ function passwordValidation(event) {
             "block";
         document.getElementById("passwordValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.password = "1";
+        payam.password = "password";
         return false;
     }
     let re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
@@ -165,7 +165,7 @@ function passwordValidation(event) {
             پسورد حداقل باید ۸ کاراکتر باشد <br>
             حداقل از یک عدد استفاده کنید <br>
             `;
-        payam.password = "1";
+        payam.password = "password";
         return false;
     }
     payam.password = "";
@@ -182,7 +182,7 @@ function confirmPasswordValidation(event) {
         ).style.display = "block";
         document.getElementById("confirmPasswordValidationMessage").innerHTML =
             "لطفا این ورودی را پر کنید";
-        payam.confirmPassword = "1";
+        payam.confirmPassword = "confirm";
         return false;
     }
     if ((password != inputValue)) {
@@ -194,7 +194,7 @@ function confirmPasswordValidation(event) {
         ).innerHTML = `
                 ورودی رمز عبور با تایید رمز عبور باید یکسان باشد
             `;
-        payam.confirmPassword = "1";
+        payam.confirmPassword = "confirm";
         return false;
     }
     payam.confirmPassword = "";

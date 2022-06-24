@@ -17,6 +17,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <!-- Form step -->
+    <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -895,9 +896,9 @@
                                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                     <div class="header-info">
                                         <small>مدیر ارشد</small>
-                                        <span>آرزو حسینی</span>
+                                        <span>قاسم سلیمانی</span>
                                     </div>
-                                    <img src="{{ asset('images/profile/10.jpg') }}" width="20" alt="" />
+                                    <img src="{{ asset('images/profile/sardar.jpg') }}" width="20" alt="" />
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="app-profile.html" class="dropdown-item ai-icon">
@@ -1175,59 +1176,64 @@
                                                     <div class="form-group">
                                                         <label class="text-label"> آدرس ایمیل *</label>
                                                         <input type="email" name="email" class="form-control"
-                                                            onkeyup="emailValidation(this)"
-                                                            id="inputGroupPrepend2"
+                                                            onkeyup="emailValidation(this)" id="inputGroupPrepend2"
                                                             aria-describedby="inputGroupPrepend2"
                                                             placeholder="example@example.com" required>
-                                                            <div id="emailValidationMessage" class="invalid-feedback">
-                                                                ....
-                                                            </div>
+                                                        <div id="emailValidationMessage" class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label">  شماره تلفن همراه *</label>
-                                                        <input type="text" onkeyup="phoneNumberValidation(this)" name="phoneNumber" class="form-control"
+                                                        <label class="text-label"> شماره تلفن همراه *</label>
+                                                        <input type="text" onkeyup="phoneNumberValidation(this)"
+                                                            name="phoneNumber" class="form-control"
                                                             placeholder="09123456789" required>
-                                                            <div id="phoneNumberValidationMessage" class="invalid-feedback">
-                                                                ....
-                                                            </div>
+                                                        <div id="phoneNumberValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 mb-3">
                                                     <div class="form-group">
                                                         <label class="text-label">نشانی منزل*</label>
-                                                        <input type="text" placeholder="مشهد - بلوار شهید سلیمانی" onkeyup="homePlaceValidation(this)" name="homePlace" class="form-control"
-                                                            required>
-                                                            <div id="homePlaceValidationMessage" class="invalid-feedback">
-                                                                ....
-                                                            </div>
+                                                        <input type="text" placeholder="مشهد - بلوار شهید سلیمانی"
+                                                            onkeyup="homePlaceValidation(this)" name="homePlace"
+                                                            class="form-control" required>
+                                                        <div id="homePlaceValidationMessage" class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> رمز عبور *</label>
-                                                        <input type="password" onkeyup="passwordValidation(this)" name="password" class="form-control"
+                                                        <input type="password" onkeyup="passwordValidation(this)"
+                                                            name="password" class="form-control"
                                                             placeholder="رمز عبور خود را وارد کنید" required>
-                                                            <div id="passwordValidationMessage" class="invalid-feedback">
-                                                                ....
-                                                            </div>
+                                                        <div id="passwordValidationMessage" class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> تایید رمز عبور *</label>
-                                                        <input type="password" onkeyup="confirmPasswordValidation(this)" name="confirmPassword"
-                                                            class="form-control"
+                                                        <input type="password" onkeyup="confirmPasswordValidation(this)"
+                                                            name="confirmPassword" class="form-control"
                                                             placeholder="رمز عبور را دوباره وارد کنید" required>
-                                                            <div id="confirmPasswordValidationMessage" class="invalid-feedback">
-                                                                ....
-                                                            </div>
+                                                        <div id="confirmPasswordValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12 mb-3">
-                                                    <button onclick="getPersonalInformation(event)" type="button"
+                                                    <button id="personlalEnformationSaveButton"
+                                                        onclick="getPersonalInformation(event)" type="button"
                                                         class="btn btn-primary mb-2 ml-2">ارسال</button>
                                                 </div>
                                             </div>
@@ -1237,32 +1243,40 @@
                                             <div class="row">
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label"> نام شرکت *</label>
+                                                        <label class="text-label"> نام رستوران *</label>
                                                         <input type="text" name="firstName" class="form-control"
-                                                            placeholder="آرمان نوین" required>
+                                                            placeholder="قاسم سلیمانی" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label"> آدرس پست الکترونیک شرکت
-                                                            *</label>
-                                                        <input type="email" class="form-control" id="emial1"
-                                                            placeholder="example@example.com.com" required>
+                                                        <label class="form-label">نوع رستوران *</label>
+                                                        <select multiple class="default-select  form-control wide">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label">شماره تلفن شرکت *</label>
+                                                        <label class="text-label">شماره حساب *</label>
                                                         <input type="text" name="phoneNumber" class="form-control"
-                                                            placeholder="657-9007- 21 (98+)" required>
+                                                            placeholder="6273811619866066" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
-                                                        <label class="text-label">سمت شما در شرکت *</label>
+                                                        <label class="text-label">نشانی رستوران *</label>
                                                         <input type="text" name="place" class="form-control"
                                                             required>
                                                     </div>
+                                                </div>
+                                                <div class="col-lg-12 mb-3">
+                                                    <button id="personlalEnformationSaveButton"
+                                                        onclick="getPersonalInformation(event)" type="button"
+                                                        class="btn btn-primary mb-2 ml-2">ارسال</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1460,6 +1474,7 @@
     ***********************************-->
     <!-- Required vendors -->
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/register-seller/validation.js') }}"></script>
