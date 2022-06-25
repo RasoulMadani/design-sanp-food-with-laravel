@@ -1,5 +1,6 @@
 // in the name of allah
 function loginToAccount(event) {
+    let route = routeDashboard;
     for (const [key, value] of Object.entries(messageForLoginForm)) {
         if (value.length !== 0) {
             alert("لطفا همه ورودی ها رو کامل و درست پر کنید");
@@ -31,8 +32,7 @@ function loginToAccount(event) {
             </div>
         </div>`;
         }else if(javab.allah == 'loginuser'){
-
-            window.location.href = javab.allah.url;
+            window.location.href = route;
         }
         // TODO تنظیم اینکه وقتی خطایی رخ داد چه کار کند
     };

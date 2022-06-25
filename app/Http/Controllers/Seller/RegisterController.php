@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -34,21 +35,20 @@ class RegisterController extends Controller
         //     ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
         //     JSON_UNESCAPED_UNICODE
         // );
-        try{
+        try {
             $registerUser = new User;
             $registerUser->firstName = request('firstName');
             $registerUser->lastName = request('lastName');
             $registerUser->email = request('email');
             $registerUser->homePlace = request('homePlace');
             $registerUser->phone = request('phoneNumber');
+            // TODO هش کردن رمز عبور
             $registerUser->password = request('password');
             $registerUser->role = 'seller';
             $registerUser->save();
             return response()->json('allah');
-         }
-         catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e->getMessage());
-         }
-        
+        }
     }
 }

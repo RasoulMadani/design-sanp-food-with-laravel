@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="h-100" >
+<body class="h-100">
 
     <div class="authincation h-100">
         <div class="container h-100">
@@ -91,6 +91,9 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
+    <script>
+        let routeDashboard = "{{ route('admin.dashboard') }}";
+    </script>
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>

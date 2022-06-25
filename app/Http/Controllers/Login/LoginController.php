@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Login;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -23,9 +24,15 @@ class LoginController extends Controller
             return $th->validator->errors();
             // TODO تنظیم کردن خطاها در سمت جاوااسکریپت وقتی ازا ین قسمت خطایی ارسال می شود
         }
-        if (Auth::attempt($credentials)) {
+        // if (Auth::attempt($credentials)) {
+
+        // }
+        $karbar = User::where('email', request('email'))->first();
+        // if (auth()->user()->password == request('password')) {
+        if ($karbar) {
+            Auth::login($karbar, $remember = true);
             $request->session()->regenerate();
-            return response()->json(['allah' => "loginuser",'url'=> route('admin.dashboard')]);
+            return response()->json(['allah' => "loginuser"]);
         }
         return response()->json(['allah' => "notexist"]);
     }
