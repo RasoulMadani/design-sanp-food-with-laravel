@@ -723,7 +723,8 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                        <img alt="image" width="50"
+                                                            src="{{ asset('images/avatar/1.jpg') }}">
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">دانیال عبادی برای شما یک عکس فرستاد
@@ -758,7 +759,8 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                        <img alt="image" width="50"
+                                                            src="{{ asset('images/avatar/1.jpg') }}">
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">دانیال عبادی برای شما یک عکس فرستاد
@@ -950,6 +952,8 @@
                             <li><a href="order.html">سفارش</a></li>
                             <li><a href="order-list.html">لیست سفارش</a></li>
                             <li><a href="customer-list.html">لیست مشتریان</a></li>
+                            <li onclick="createCategory(this)"><a href="javascript:void()">ساخت دسته بندی غذا و
+                                    رستوران</a></li>
                         </ul>
 
                     </li>
@@ -1183,7 +1187,8 @@
                             <div class="card-header media border-0 pb-0">
                                 <div class="media-body">
                                     <h2 class="text-black">61,200<small class="size">تومان </small>
-                                        <span class="text-danger fs-14" dir="ltr">-3.7%</span></h2>
+                                        <span class="text-danger fs-14" dir="ltr">-3.7%</span>
+                                    </h2>
                                     <p class="mb-0 text-black">درآمد</p>
                                 </div>
                                 <svg width="20" height="36" viewBox="0 0 20 36" fill="none"
@@ -1198,7 +1203,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-12">
+                    <div class="col-xl-6 col-lg-12" id="x6-1">
                         <div class="card">
                             <div class="card-header pb-0 border-0 flex-wrap">
                                 <div class="mb-2">
@@ -1294,7 +1299,7 @@
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <img class="me-3 img-fluid rounded-circle" width="75"
-                                                            src="images/card/pic1.jpg" alt="عکس">
+                                                            src="{{ asset('images/card/pic1.jpg') }}" alt="عکس">
                                                         <div class="media-body">
                                                             <h5 class="mt-0 mb-2"><a class="text-black"
                                                                     href="ecom-product-detail.html">سوپ اسفناج و ماهی
@@ -1401,7 +1406,7 @@
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <img class="me-3 img-fluid rounded-circle" width="75"
-                                                            src="images/card/pic2.jpg" alt="عکس">
+                                                            src="{{ asset('images/card/pic2.jpg') }}" alt="عکس">
                                                         <div class="media-body">
                                                             <h5 class="mt-0 mb-2"><a
                                                                     href="ecom-product-detail.html"
@@ -1417,7 +1422,8 @@
                                                 <td style="width:500px;">
                                                     <div class="d-flex align-items-center justify-content-center">
                                                         <h4 class="mb-0 me-3 fs-20 text-black d-inline-block">82,300
-                                                            <small class="size"> تومان </small></h4>
+                                                            <small class="size"> تومان </small>
+                                                        </h4>
                                                         <p class="mb-0 fs-20 d-inline-block">1x</p>
                                                     </div>
                                                 </td>
@@ -1508,7 +1514,7 @@
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <img class="me-3 img-fluid rounded-circle" width="75"
-                                                            src="images/card/pic3.jpg" alt="عکس">
+                                                            src="{{ asset('images/card/pic3.jpg') }}" alt="عکس">
                                                         <div class="media-body">
                                                             <h5 class="mt-0 mb-2"><a
                                                                     href="ecom-product-detail.html"
@@ -1614,7 +1620,7 @@
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <img class="me-3 img-fluid rounded-circle" width="75"
-                                                            src="images/card/pic6.jpg" alt="عکس">
+                                                            src="{{ asset('images/card/pic6.jpg') }}" alt="عکس">
                                                         <div class="media-body">
                                                             <h5 class="mt-0 mb-2"><a
                                                                     href="ecom-product-detail.html"
@@ -1722,7 +1728,7 @@
                                                 <td>
                                                     <div class="media align-items-center">
                                                         <img class="me-3 img-fluid rounded-circle" width="75"
-                                                            src="images/card/pic7.jpg" alt="عکس">
+                                                            src="{{ asset('images/card/pic7.jpg') }}" alt="عکس">
                                                         <div class="media-body">
                                                             <h5 class="mt-0 mb-2"><a
                                                                     href="ecom-product-detail.html"
@@ -1738,7 +1744,8 @@
                                                 <td style="width:500px;">
                                                     <div class="d-flex align-items-center justify-content-center">
                                                         <h4 class="mb-0 me-3 fs-20 text-black d-inline-block">82,300
-                                                            <small class="size"> تومان </small></h4>
+                                                            <small class="size"> تومان </small>
+                                                        </h4>
                                                         <p class="mb-0 fs-20 d-inline-block">1x</p>
                                                     </div>
                                                 </td>
@@ -1847,7 +1854,8 @@
                                         <li>
                                             <div class="timeline-panel">
                                                 <div class="media me-3">
-                                                    <img alt="image" width="90" src="images/card/pic8.jpg">
+                                                    <img alt="image" width="90"
+                                                        src="{{ asset('images/card/pic8.jpg') }}">
                                                     <div class="number">#1</div>
                                                 </div>
                                                 <div class="media-body">
@@ -1865,7 +1873,8 @@
                                         <li>
                                             <div class="timeline-panel">
                                                 <div class="media me-3">
-                                                    <img alt="image" width="90" src="images/card/pic4.jpg">
+                                                    <img alt="image" width="90"
+                                                        src="{{ asset('images/card/pic4.jpg') }}">
                                                     <div class="number">#2</div>
                                                 </div>
                                                 <div class="media-body">
@@ -1883,7 +1892,8 @@
                                         <li>
                                             <div class="timeline-panel">
                                                 <div class="media me-3">
-                                                    <img alt="image" width="90" src="images/card/pic9.jpg">
+                                                    <img alt="image" width="90"
+                                                        src="{{ asset('images/card/pic9.jpg') }}">
                                                     <div class="number">#3</div>
                                                 </div>
                                                 <div class="media-body">
@@ -1901,7 +1911,8 @@
                                         <li>
                                             <div class="timeline-panel">
                                                 <div class="media me-3">
-                                                    <img alt="image" width="90" src="images/card/pic6.jpg">
+                                                    <img alt="image" width="90"
+                                                        src="{{ asset('images/card/pic6.jpg') }}">
                                                     <div class="number">#4</div>
                                                 </div>
                                                 <div class="media-body">
@@ -1919,7 +1930,8 @@
                                         <li>
                                             <div class="timeline-panel">
                                                 <div class="media me-3">
-                                                    <img alt="image" width="90" src="images/card/pic10.jpg">
+                                                    <img alt="image" width="90"
+                                                        src="{{ asset('images/card/pic10.jpg') }}">
                                                     <div class="number">#5</div>
                                                 </div>
                                                 <div class="media-body">
@@ -1978,6 +1990,7 @@
 
     <!-- Dashboard 1 -->
     <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
+    <script src="{{ asset('js/admin/dashboard/createCategory.js') }}"></script>
 
 
 </body>
