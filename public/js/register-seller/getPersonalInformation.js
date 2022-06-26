@@ -20,6 +20,7 @@ function getPersonalInformation() {
     let token = document.querySelector('meta[name="csrf-token"]').content;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
+        // TODO دادن هشدار مناسب موقع ثبت شدن اسم فرد
         if (this.response == "allah") {
             document.getElementById(
                 "personlalEnformationSaveButton"

@@ -20,4 +20,8 @@ class Restaurant extends Model
     {
         return $this->morphToMany(Address::class, 'addressezable');
     }
+    public function phones()
+    {
+        return $this->morphToMany(Phone::class, 'phonizable');
+    }
 }

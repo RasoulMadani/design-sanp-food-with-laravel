@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class SellerDashboardController extends Controller
 {
     public function showDashboardPage()
     {
-        return view('admin.dashboard');
+        return view('seller.dashboard');
     }
 }

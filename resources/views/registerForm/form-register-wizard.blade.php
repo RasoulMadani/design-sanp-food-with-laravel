@@ -1244,38 +1244,49 @@
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> نام رستوران *</label>
-                                                        <input type="text" name="firstName" class="form-control"
+                                                        <input type="text" name="restaurantName" class="form-control"
                                                             placeholder="قاسم سلیمانی" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="form-label">نوع رستوران *</label>
-                                                        <select multiple class="default-select  form-control wide">
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
+                                                        <select name="typeOfRestaurant" multiple class="default-select  form-control wide">
+                                                            @foreach ($categories as $key => $category)
+                                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">شماره حساب *</label>
-                                                        <input type="text" name="phoneNumber" class="form-control"
+                                                        <input type="text" name="bankAccountNumber" class="form-control"
                                                             placeholder="6273811619866066" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">نشانی رستوران *</label>
-                                                        <input type="text" name="place" class="form-control"
+                                                        <input type="text" name="restaurantAddress" class="form-control"
                                                             required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mb-2">
+                                                    <div class="form-group">
+                                                        <label class="text-label"> شماره تلفن رستوران *</label>
+                                                        <input type="text" onkeyup="phoneNumberValidation(this)"
+                                                            name="phoneNumberRestaurant" class="form-control"
+                                                            placeholder="09123456789" required>
+                                                        <div id="phoneNumberValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 mb-3">
                                                     <button id="personlalEnformationSaveButton"
-                                                        onclick="getPersonalInformation(event)" type="button"
+                                                        onclick="getRestaurantInformation(this)" type="button"
                                                         class="btn btn-primary mb-2 ml-2">ارسال</button>
                                                 </div>
                                             </div>
@@ -1479,6 +1490,7 @@
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/register-seller/validation.js') }}"></script>
     <script src="{{ asset('js/register-seller/getPersonalInformation.js') }}"></script>
+    <script src="{{ asset('js/register-seller/getRestaurantInformation.js') }}"></script>
 
     <script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>
     <script>
