@@ -41,19 +41,54 @@ function saveNewFood() {
 
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
-        console.log(this.response);
-        return;
-        if (xhr.status == 200) {
-            myFile.value = "";
-            let akseAsliyeTanzimateShakhsi = document.querySelectorAll(
-                ".akseAsliyeTanzimateShakhsi"
-            );
-            akseAsliyeTanzimateShakhsi[0].src = `anbari/aksHa/akshayeShakhsi/${this.response}`;
-            akseAsliyeTanzimateShakhsi[1].src = `anbari/aksHa/akshayeShakhsi/${this.response}`;
-            akseAsliyeTanzimateShakhsi[2].src = `anbari/aksHa/akshayeShakhsi/${this.response}`;
-            akseAsliyeTanzimateShakhsi[3].src = `anbari/aksHa/akshayeShakhsi/${this.response}`;
+        let response = JSON.parse(this.response);
+        if (response.allah == "save") {
+            document.getElementById(
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-success left-icon-big alert-dismissible fade show">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="btn-close"
+                >
+                    <span>
+                        <i class="mdi mdi-btn-close"></i>
+                    </span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span>
+                            <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">تبریک میگم !</h5>
+                        <p class="mb-0">غذای جدید ساخته شد  .</p>
+                    </div>
+                </div>
+            </div>
+        </div>`;
         } else {
-            alert("متاسفانه عکس بارگزاری نشد");
+            document.getElementById(
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-danger left-icon-big alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i class="mdi mdi-btn-close"></i></span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span><i class="mdi mdi-alert"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">متاسفانه غذا ذخیره نشد</h5>
+                        <p class="mb-0">با پشتیبانی تماس بگیرید</p>
+                        // TODO قرار دادن شماره پشتیبانی و یا پیوند ارتباط بلادرنگ
+                    </div>
+                </div>
+            </div>
+        </div>`;
         }
     };
 

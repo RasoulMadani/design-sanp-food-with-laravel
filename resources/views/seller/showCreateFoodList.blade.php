@@ -1109,6 +1109,8 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
+                <div id="messageLogin">
+                </div>
                 <div class="row mb-5">
                     <div class="col-lg-6 mb-2">
                         <div class="form-group">
