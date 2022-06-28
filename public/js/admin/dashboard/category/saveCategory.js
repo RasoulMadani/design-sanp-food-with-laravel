@@ -10,7 +10,6 @@ function saveCategory() {
         "input[name='nameCategory']"
     ).value;
     let group = document.querySelector("select[name='category']").value;
-    alert(group);
     let token = document.querySelector('meta[name="csrf-token"]').content;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {

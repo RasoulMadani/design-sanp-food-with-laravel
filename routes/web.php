@@ -29,3 +29,5 @@ Route::post('/admin/dashboard/edit-category-list', [AdminDashboardController::cl
 Route::post('/admin/dashboard/save-category', [AdminDashboardController::class, 'saveCategory']);
 
 Route::get('/seller/dashboard', [SellerDashboardController::class, 'showDashboardPage'])->name('seller.dashboard');
+Route::get('/seller/dashboard/show-create-food-list', [SellerDashboardController::class, 'showCreateFoodList'])->name('seller.dashboard.showCreateFoodList');
+Route::post('/seller/dashboard/save-create-food', [SellerDashboardController::class, 'saveCreateFood']);

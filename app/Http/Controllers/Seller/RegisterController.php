@@ -24,7 +24,7 @@ class RegisterController extends Controller
             $request->validate([
                 'firstName' => 'required',
                 'lastName' => 'required',
-                'email' => 'required|unique:users',
+                'email' => 'required|email|unique:users',
                 'homePlace' => 'required',
                 'phoneNumber' => 'required',
                 'password' => 'min:6|required_with:confirmPassword|same:confirmPassword',
@@ -71,6 +71,7 @@ class RegisterController extends Controller
             // TODO تنظیم کردن خطاها در سمت جاوااسکریپت وقتی ازا ین قسمت خطایی ارسال می شود
         }
         try {
+            // TODO ثبت کردن شناسه کاربر صاحب رستوران که برای این کار فرد اول باید ورود کند و بعد رستوران بسازد
             $registerRestaurant = new Restaurant;
             $registerRestaurant->name = request('restaurantName');
             $registerRestaurant->phone = request('phoneNumberRestaurant');
@@ -89,6 +90,9 @@ class RegisterController extends Controller
             $registerRestaurantPhone->save();
             $registerRestaurant->phones()->save($registerRestaurantPhone);
             return response()->json('allah');
+            /**
+              // https://www.vertabelo.com/blog/a-restaurant-delivery-data-model/
+             */
         } catch (\Exception $e) {
             return response()->json($e->getMessage());
         }

@@ -38,5 +38,5 @@ function loginToAccount(event) {
     };
     xhttp.open("POST", "/public/login-form");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(`_token=${token}&email=${email}&password=${password}}`);
+    xhttp.send(`_token=${token}&email=${email}&password=${password}`);
 }

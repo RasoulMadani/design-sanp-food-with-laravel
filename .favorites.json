@@ -1,0 +1,47 @@
+[
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\app\\Models",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\app\\Models",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "kshI7rS61LelTuv9"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\public\\js",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\public\\js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "HINExrGBUp7azJ2l"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\app\\Http\\Controllers",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\app\\Http\\Controllers",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "67DgwXilGBxMFz1b"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\resources\\views",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\resources\\views",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "f5drQzF3PL7bGlYp"
+    },
+    {
+        "type": "File",
+        "name": "e:\\laravel\\GsSnapFood\\routes\\web.php",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\routes\\web.php",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "pIERHwUWLFtvbDs8"
+    }
+]

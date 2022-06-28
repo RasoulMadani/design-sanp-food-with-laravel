@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
     public function foods()
-    {چچچچچ
+    {
         return $this->morphedByMany(Food::class, 'imagezable');
     }
 

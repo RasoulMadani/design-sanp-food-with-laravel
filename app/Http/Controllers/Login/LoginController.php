@@ -17,23 +17,23 @@ class LoginController extends Controller
     {
         try {
             $credentials = $request->validate([
+                // email
                 'email' => 'required|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
-                'password' => 'min:8|required',
+                'password' => 'required|min:8',
             ]);
         } catch (\Illuminate\Validation\ValidationException $th) {
             return $th->validator->errors();
             // TODO تنظیم کردن خطاها در سمت جاوااسکریپت وقتی ازا ین قسمت خطایی ارسال می شود
         }
-        // if (Auth::attempt($credentials)) {
-
-        // }
-        $karbar = User::where('email', request('email'))->first();
-        // if (auth()->user()->password == request('password')) {
-        if ($karbar) {
-            Auth::login($karbar, $remember = true);
-            $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
             return response()->json(['allah' => "loginuser"]);
         }
+        // $karbar = User::where('email', request('email'))->first();
+        // if (auth()->user()->password == request('password')) {
+        // if ($karbar) {
+        //     Auth::login($karbar, $remember = true);
+        //     $request->session()->regenerate();
+        // }
         return response()->json(['allah' => "notexist"]);
     }
 }
