@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Food;
 use App\Models\Image;
+use Illuminate\Support\Facades\Auth;
 
 class SellerDashboardController extends Controller
 {
@@ -38,6 +39,7 @@ class SellerDashboardController extends Controller
             // TODO ثبت کردن شناسه کاربر صاحب رستوران که برای این کار فرد اول باید ورود کند و بعد رستوران بسازد
             $createFood = new Food;
             $createFood->name = request('foodName');
+            $createFood->user_id = Auth::id();
             $createFood->ingredient = request('ingredientsFood');
             $createFood->price = request('foodPrice');
             $createFood->save();

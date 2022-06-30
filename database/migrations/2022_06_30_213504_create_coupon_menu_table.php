@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoodsTable extends Migration
+class CreateCouponMenuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('foods', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class);
-            $table->string('name');
-            $table->string('ingredient');
-            $table->integer('price');
-            $table->timestamps();
+        Schema::create('coupon_menu', function (Blueprint $table) {
+            $table->integer('coupon_id');
+            $table->integer('menu_id');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('coupon_menu');
     }
 }

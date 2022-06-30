@@ -17,4 +17,12 @@ class Food extends Model
     {
         return $this->morphToMany(Image::class, 'imagezable');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function menus()
+    {
+        return $this->hasMany(Menu::class);
+    }
 }
