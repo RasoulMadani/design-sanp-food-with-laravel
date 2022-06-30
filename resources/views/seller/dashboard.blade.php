@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="{{ asset('css/LineIcons.css') }}" rel="stylesheet">
 
 </head>
 
@@ -976,7 +976,7 @@
                             <li><a href="app-calender.html">تقویم</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">فروشگاه</a>
                                 <ul aria-expanded="false">
-                                    <li><a href="ecom-product-grid.html">گرید محصولات</a></li>
+                                    <li><a href="javascript:void()" onclick="getStores()">فروشگاهها</a></li>
                                     <li><a href="ecom-product-list.html">لیست محصولات</a></li>
                                     <li><a href="ecom-product-detail.html">جزئیات محصول</a></li>
                                     <li><a href="ecom-product-order.html">سفارشات</a></li>
@@ -1991,6 +1991,7 @@
     <script src="{{ asset('js/admin/dashboard/category/validationCategoryForm.js') }}"></script>
     <script src="{{ asset('js/admin/dashboard/category/saveCategory.js') }}"></script>
     <script src="{{ asset('js/admin/dashboard/category/saveCategory.js') }}"></script>
+    <script src="{{ asset('js/stores/getStores.js') }}"></script>
 
 
 </body>

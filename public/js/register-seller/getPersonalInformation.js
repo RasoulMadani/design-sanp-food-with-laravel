@@ -5,7 +5,6 @@ function getPersonalInformation() {
         if (value.length !== 0) {
             alert("لطفا همه ورودی ها رو کامل و درست پر کنید");
             return;
-            
         }
     }
     let firstName = document.querySelector("input[name='firstName']").value;
@@ -20,16 +19,73 @@ function getPersonalInformation() {
     let token = document.querySelector('meta[name="csrf-token"]').content;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
-        // TODO دادن هشدار مناسب موقع ثبت شدن اسم فرد
-        if (this.response == "allah") {
+        // TODO وقتی پیام هشدار داده می شود دکمه ارسال می رود پایین و دیده نمی شود
+        let response = JSON.parse(this.response);
+        if (response.allah == "save") {
             document.getElementById(
-                "personlalEnformationSaveButton"
-            ).disabled = true;
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-success left-icon-big alert-dismissible fade show">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="btn-close"
+                >
+                    <span>
+                        <i class="mdi mdi-btn-close"></i>
+                    </span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span>
+                            <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">تبریک میگم !</h5>
+                        <p class="mb-0">شما به عنوان فروشنده ثبت نام شدید  .</p>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+            document.querySelector("input[name='firstName']").value = "";
+            document.querySelector("input[name='lastName']").value = "";
+            document.querySelector("input[name='email']").value = "";
+            document.querySelector("input[name='phoneNumber']").value = "";
+            document.querySelector("input[name='homePlace']").value = "";
+            document.querySelector("input[name='password']").value = "";
+            document.querySelector("input[name='confirmPassword']").value = "";
+            document.getElementById("vorodiyeDaryafteAskShenaseh").value = "";
+            payam = {
+                firstName: "first",
+                lastName: "last",
+                email: "email",
+                phoneNumber: "phone",
+                homePlace: "homePlace",
+                password: "password",
+                confirmPassword: "confirm",
+            };
+        } else {
             document.getElementById(
-                "personlalEnformationSaveButton"
-            ).innerHTML = "اطلاعات ذخیره شد";
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-danger left-icon-big alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i class="mdi mdi-btn-close"></i></span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span><i class="mdi mdi-alert"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">متاسفانه شما ثبت نام نشدید</h5>
+                        <p class="mb-0">با پشتیبانی تماس بگیرید</p>
+                        // TODO قرار دادن شماره پشتیبانی و یا پیوند ارتباط بلادرنگ
+                    </div>
+                </div>
+            </div>
+        </div>`;
         }
-        // TODO تنظیم اینکه وقتی خطایی رخ داد چه کار کند
     };
     xhttp.open("POST", "/public/register-seller/get-personal-information");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

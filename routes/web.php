@@ -5,6 +5,7 @@ use App\Http\Controllers\Seller\RegisterController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Seller\SellerDashboardController;
+use App\Http\Controllers\Stores\StoresController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,5 @@ Route::post('/admin/dashboard/save-category', [AdminDashboardController::class, 
 Route::get('/seller/dashboard', [SellerDashboardController::class, 'showDashboardPage'])->name('seller.dashboard');
 Route::get('/seller/dashboard/show-create-food-list', [SellerDashboardController::class, 'showCreateFoodList'])->name('seller.dashboard.showCreateFoodList');
 Route::post('/seller/dashboard/save-create-food', [SellerDashboardController::class, 'saveCreateFood']);
+
+Route::post('/stores/get-stores', [StoresController::class, 'getStores']);

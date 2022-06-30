@@ -1149,6 +1149,8 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div id="wizard_Service" class="tab-pane" role="tabpanel">
+                                            <div id="messageLogin">
+                                            </div>
                                             <div class="row mb-5">
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">

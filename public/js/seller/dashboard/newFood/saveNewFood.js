@@ -70,6 +70,16 @@ function saveNewFood() {
                 </div>
             </div>
         </div>`;
+            document.querySelector("input[name='foodName']").value = "";
+            document.querySelector("input[name='ingredientsFood']").value = "";
+            document.querySelector("input[name='foodPrice']").value = "";
+            document.getElementById("vorodiyeDaryafteAskShenaseh").value = "";
+            messageForNewFoodForm = {
+                foodName: "foodName",
+                ingredientsFood: "ingredientsFood",
+                foodPrice: "foodPrice",
+                uploadImage: "uploadImage"
+            };
         } else {
             document.getElementById(
                 "messageLogin"

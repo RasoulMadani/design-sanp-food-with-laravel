@@ -17,6 +17,8 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('lat');
             $table->string('lang');
+            $table->string('textAddress');
+            $table->boolean('defaultAddress')->default(false);
             $table->timestamps();
         });
     }

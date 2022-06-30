@@ -45,13 +45,21 @@ class RegisterController extends Controller
             $registerUser->firstName = request('firstName');
             $registerUser->lastName = request('lastName');
             $registerUser->email = request('email');
-            $registerUser->homePlace = request('homePlace');
-            $registerUser->phone = request('phoneNumber');
-            // TODO هش کردن رمز عبور
             $registerUser->password = request('password');
             $registerUser->role = 'seller';
             $registerUser->save();
-            return response()->json('allah');
+            $registerUserAddress = new Address;
+            // TODO اضافه کردن طول و عرض جغرافیایی به نشانی ها
+            $registerUserAddress->lat = 1;
+            $registerUserAddress->lang = 2;
+            $registerUserAddress->textAddress = request('homePlace');
+            $registerUserAddress->save();
+            $registerUser->addresses()->save($registerUserAddress);
+            $registerUserPhone = new Phone;
+            $registerUserPhone->phoneNumber = request('phoneNumber');
+            $registerUserPhone->save();
+            $registerUser->phones()->save($registerUserPhone);
+            return response()->json(['allah' => 'save']);
         } catch (\Exception $e) {
             return response()->json($e->getMessage());
         }
@@ -83,6 +91,7 @@ class RegisterController extends Controller
             $registerRestaurantAddress = new Address;
             $registerRestaurantAddress->lat = 1;
             $registerRestaurantAddress->lang = 2;
+            $registerRestaurantAddress->textAddress = request('restaurantAddress');
             $registerRestaurantAddress->save();
             $registerRestaurant->addresses()->save($registerRestaurantAddress);
             $registerRestaurantPhone = new Phone;

@@ -43,5 +43,14 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "pIERHwUWLFtvbDs8"
+    },
+    {
+        "type": "File",
+        "name": "e:\\laravel\\GsSnapFood\\routes\\api.php",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\routes\\api.php",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "6hWe4CDja30TG2lE"
     }
 ]
