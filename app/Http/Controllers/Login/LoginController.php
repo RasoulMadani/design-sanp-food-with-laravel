@@ -26,6 +26,7 @@ class LoginController extends Controller
             // TODO تنظیم کردن خطاها در سمت جاوااسکریپت وقتی ازا ین قسمت خطایی ارسال می شود
         }
         if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
             return response()->json(['allah' => "loginuser"]);
         }
         // $karbar = User::where('email', request('email'))->first();

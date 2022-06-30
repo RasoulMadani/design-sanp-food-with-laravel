@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Restaurant;
 use App\Models\Address;
 use App\Models\Phone;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -48,6 +49,11 @@ class RegisterController extends Controller
             $registerUser->password = request('password');
             $registerUser->role = 'seller';
             $registerUser->save();
+            if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+                $request->session()->regenerate();
+            } else {
+                return response()->json(['allah' => "userExist"]);
+            }
             $registerUserAddress = new Address;
             // TODO اضافه کردن طول و عرض جغرافیایی به نشانی ها
             $registerUserAddress->lat = 1;
@@ -82,6 +88,7 @@ class RegisterController extends Controller
             // TODO ثبت کردن شناسه کاربر صاحب رستوران که برای این کار فرد اول باید ورود کند و بعد رستوران بسازد
             $registerRestaurant = new Restaurant;
             $registerRestaurant->name = request('restaurantName');
+            $registerRestaurant->user_id = Auth::id();
             $registerRestaurant->phone = request('phoneNumberRestaurant');
             $registerRestaurant->address = request('restaurantAddress');
             $registerRestaurant->account_payment = request('bankAccountNumber');
@@ -98,7 +105,7 @@ class RegisterController extends Controller
             $registerRestaurantPhone->phoneNumber = request('phoneNumberRestaurant');
             $registerRestaurantPhone->save();
             $registerRestaurant->phones()->save($registerRestaurantPhone);
-            return response()->json('allah');
+            return response()->json(['allah' => 'perform']);
             /**
               // https://www.vertabelo.com/blog/a-restaurant-delivery-data-model/
              */

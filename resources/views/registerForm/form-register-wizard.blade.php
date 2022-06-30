@@ -1242,45 +1242,70 @@
                                         </div>
 
                                         <div id="wizard_Time" class="tab-pane" role="tabpanel">
+                                            <div id="messageLoginRestaurantInformation">
+                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> نام رستوران *</label>
-                                                        <input type="text" name="restaurantName" class="form-control"
-                                                            placeholder="قاسم سلیمانی" required>
+                                                        <input type="text" name="restaurantName"
+                                                            onkeyup="restaurantNameValidation(this)"
+                                                            class="form-control" placeholder="قاسم سلیمانی" required>
+                                                        <div id="restaurantNameValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="form-label">نوع رستوران *</label>
-                                                        <select name="typeOfRestaurant" multiple class="default-select  form-control wide">
+                                                        <select name="typeOfRestaurant"
+                                                        onchange="typeOfRestaurantValidation(this)" multiple
+                                                            class="default-select  form-control wide">
+                                                            <option value="">یک نوع را انتخاب کنید</option>
                                                             @foreach ($categories as $key => $category)
-                                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                                <option value="{{ $category->id }}">
+                                                                    {{ $category->name }}</option>
                                                             @endforeach
                                                         </select>
+                                                        <div id="typeOfRestaurantValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">شماره حساب *</label>
-                                                        <input type="text" name="bankAccountNumber" class="form-control"
+                                                        <input type="text" onkeyup="bankAccountNumberValidation(this)"
+                                                            name="bankAccountNumber" class="form-control"
                                                             placeholder="6273811619866066" required>
+                                                        <div id="bankAccountNumberValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label">نشانی رستوران *</label>
-                                                        <input type="text" name="restaurantAddress" class="form-control"
-                                                            required>
+                                                        <input type="text"
+                                                            onkeyup="restaurantAddressValidation(this)" name="restaurantAddress" class="form-control" required>
+                                                        <div id="restaurantAddressValidationMessage"
+                                                            class="invalid-feedback">
+                                                            ....
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 mb-2">
                                                     <div class="form-group">
                                                         <label class="text-label"> شماره تلفن رستوران *</label>
-                                                        <input type="text" onkeyup="phoneNumberValidation(this)"
+                                                        <input type="text"
+                                                            onkeyup="phoneNumberRestaurantValidation(this)"
                                                             name="phoneNumberRestaurant" class="form-control"
                                                             placeholder="09123456789" required>
-                                                        <div id="phoneNumberValidationMessage"
+                                                        <div id="phoneNumberRestaurantValidationMessage"
                                                             class="invalid-feedback">
                                                             ....
                                                         </div>
@@ -1492,6 +1517,7 @@
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/register-seller/validation.js') }}"></script>
     <script src="{{ asset('js/register-seller/getPersonalInformation.js') }}"></script>
+    <script src="{{ asset('js/register-seller/validationRestaurantInformation.js') }}"></script>
     <script src="{{ asset('js/register-seller/getRestaurantInformation.js') }}"></script>
 
     <script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 class CreateRestaurantsTable extends Migration
 {
@@ -16,6 +17,7 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignIdFor(User::class);
             $table->string('phone');
             // TODO یک رستوران باید بتونه چندین نشانی داشته باشه که جدول جدا نیاز داره
             $table->string('address');

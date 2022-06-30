@@ -24,4 +24,8 @@ class Restaurant extends Model
     {
         return $this->morphToMany(Phone::class, 'phonizable');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
