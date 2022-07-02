@@ -4,3 +4,16 @@ https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
 
 آموزش اعتبار سنجی لاراول
 https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
+
+# برای پست من 
+برای گرفتن 
+pm.sendRequest({
+    url: pm.variables.get('APP_URL') + 'sanctum/csrf-cookie',
+    method: 'GET'
+}, function (error, response, { cookies }) {
+    if (!error) {
+pm.environment.set('XSRF_TOKEN', cookies.get('XSRF-TOKEN'))
+}
+})
+
+https://laravel.com/docs/9.x/eloquent-relationships#filtering-queries-via-intermediate-table-columns

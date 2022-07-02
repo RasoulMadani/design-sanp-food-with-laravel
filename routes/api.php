@@ -27,14 +27,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('/restaurants', [ApiRestaurantController::class, 'getRestaurantsWithFilter']);
 // Route::get('/restaurants/{restaurant_id}/foods', [ApiRestaurantController::class, 'getRestaurantsWithFoods']);
 
-
 Route::post('/signin', [ApiLoginController::class, 'signin']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     
     Route::get('/addresses', [ApiUserController::class, 'getAddresses']);
     Route::post('/addresses', [ApiUserController::class, 'addAddress']);
-    Route::get('/addresses/{address_id}', [ApiUserController::class, 'setDefaultAddress']);
-    Route::get('/restaurants/{restaurant_id}', [ApiRestaurantController::class, 'getRestaurantInformation']);
+    Route::get('/addresses/{id}', [ApiUserController::class, 'setDefaultAddress']);
+    Route::get('/restaurants/{id}', [ApiRestaurantController::class, 'getRestaurantInformation']);
     Route::get('/restaurants', [ApiRestaurantController::class, 'getRestaurantsWithFilter']);
     Route::get('/restaurants/{restaurant_id}/foods', [ApiRestaurantController::class, 'getRestaurantsWithFoods']);
 
