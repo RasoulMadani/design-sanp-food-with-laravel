@@ -18,8 +18,9 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="{{ asset('css/LineIcons.css') }}" rel="stylesheet">
 
 </head>
 
@@ -954,13 +955,15 @@
                             <li><a href="order.html">سفارش</a></li>
                             <li><a href="order-list.html">لیست سفارش</a></li>
                             <li><a href="customer-list.html">لیست مشتریان</a></li>
-                            <li onclick="showCreateCategoryForm(this)"><a href="javascript:void()">ساخت دسته بندی غذا و
+                            <li onclick="showCreateCategoryForm()"><a href="javascript:void()">ساخت دسته بندی غذا و
                                     رستوران</a></li>
-                            <li><a href="{{ route('admin.dashboard.showCategoryList') }}">ویرایش دسته بندی ها</a></li>
+                            <li><a href="{{ route('admin.dashboard.showCategoryList') }}">ویرایش دسته بندی ها</a>
+                            </li>
+                            <li onclick="showCreateCouponForm(this)"><a href="javascript:void()">ساخت تخفیف</a></li>
                         </ul>
-
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-app"></i>
                             <span class="nav-text">برنامه های کاربردی</span>
                         </a>
@@ -1023,7 +1026,6 @@
                             <li><a href="ui-typography.html">تایپوگرافی</a></li>
                             <li><a href="ui-pagination.html">صفحه بندی</a></li>
                             <li><a href="ui-grid.html">گرید</a></li>
-
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -1206,6 +1208,8 @@
                             </div>
                         </div>
                     </div>
+                    <div id="messageLogin">
+                    </div>
                     <div class="col-xl-6 col-lg-12" id="x6-1">
                         <div class="card">
                             <div class="card-header pb-0 border-0 flex-wrap">
@@ -1236,7 +1240,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-12">
+                    <div class="col-xl-6 col-lg-12" id="x6-2">
                         <div class="card">
                             <div class="card-header border-0 d-sm-flex d-block">
                                 <div>
@@ -1988,6 +1992,9 @@
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
 
+    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('js/plugins-init/sweetalert.init.js') }}"></script>
+
     <!-- Apex Chart -->
     <script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>
 
@@ -1996,6 +2003,10 @@
     <script src="{{ asset('js/admin/dashboard/category/showCreateCategoryForm.js') }}"></script>
     <script src="{{ asset('js/admin/dashboard/category/validationCategoryForm.js') }}"></script>
     <script src="{{ asset('js/admin/dashboard/category/saveCategory.js') }}"></script>
+
+    <script src="{{ asset('js/admin/dashboard/coupon/showCreateCouponForm.js') }}"></script>
+    <script src="{{ asset('js/admin/dashboard/coupon/validationCreateCouponForm.js') }}"></script>
+    <script src="{{ asset('js/admin/dashboard/coupon/saveCoupon.js') }}"></script>
 
 
 </body>

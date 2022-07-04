@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Seller\RegisterController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\Dashboard\Coupon\CouponController;
 use App\Http\Controllers\Seller\SellerDashboardController;
 use App\Http\Controllers\Stores\StoresController;
 /*
@@ -28,6 +29,7 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'showDashboardP
 Route::get('/admin/dashboard/show-category-list', [AdminDashboardController::class, 'showCategoryList'])->name('admin.dashboard.showCategoryList');
 Route::post('/admin/dashboard/edit-category-list', [AdminDashboardController::class, 'editCategoryList']);
 Route::post('/admin/dashboard/save-category', [AdminDashboardController::class, 'saveCategory']);
+Route::post('/admin/dashboard/save-coupon', [CouponController::class, 'saveCoupon']);
 
 Route::get('/seller/dashboard', [SellerDashboardController::class, 'showDashboardPage'])->name('seller.dashboard');
 Route::get('/seller/dashboard/show-create-food-list', [SellerDashboardController::class, 'showCreateFoodList'])->name('seller.dashboard.showCreateFoodList');

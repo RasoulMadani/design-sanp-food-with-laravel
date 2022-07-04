@@ -1,7 +1,7 @@
 // in the name of allah
 
 function showCreateCategoryForm() {
-    htmlElement = `
+   let htmlElement = `
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">ایجاد دسته بندی</h4>
