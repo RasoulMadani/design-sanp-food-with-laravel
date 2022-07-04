@@ -956,6 +956,7 @@
                             <li><a href="customer-list.html">لیست مشتریان</a></li>
                             {{-- <li onclick="showCreateFoodList(this)"><a href="javascript:void()">ایجاد غذای جدید</a></li> --}}
                             <li><a href="{{ route('seller.dashboard.showCreateFoodList') }}">ایجاد غذای جدید</a></li>
+                            <li onclick="showRestaurants(this)"><a href="javascript:void()">ساخت منوی غذایی رستوران</a></li>
                         </ul>
 
                     </li>
@@ -1992,7 +1993,8 @@
     <script src="{{ asset('js/admin/dashboard/category/saveCategory.js') }}"></script>
     <script src="{{ asset('js/admin/dashboard/category/saveCategory.js') }}"></script>
     <script src="{{ asset('js/stores/getStores.js') }}"></script>
-
+    <script src="{{ asset('js/seller/dashboard/createMenu/showRestaurants.js') }}"></script>
+    <script src="{{ asset('js/seller/dashboard/createMenu/getRestaurantFood.js') }}"></script>
 
 </body>
 

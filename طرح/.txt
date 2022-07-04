@@ -5,6 +5,8 @@ https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
 آموزش اعتبار سنجی لاراول
 https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
 
+طرح پایانی
+https://docs.google.com/document/d/1j37RwNPYl0aew9DU06ViFdxc95yCiwv9wFHHLe9g2OU/edit
 # برای پست من 
 برای گرفتن 
 pm.sendRequest({

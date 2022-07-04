@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Dashboard\Coupon\CouponController;
 use App\Http\Controllers\Seller\SellerDashboardController;
 use App\Http\Controllers\Stores\StoresController;
+use App\Http\Controllers\Seller\Dashboard\MenuController;
+use App\Http\Controllers\Config\ConfigController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,7 @@ use App\Http\Controllers\Stores\StoresController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/1', [ConfigController::class, 'clearRoute']);
 Route::get('/public/register-seller', [RegisterController::class, 'showPageRegister']);
 Route::post('/public/register-seller/get-personal-information', [RegisterController::class, 'getPersonalInformation']);
 Route::post('/public/register-seller/get-restaurant-information', [RegisterController::class, 'getRastaurantInformation']);
@@ -34,5 +36,7 @@ Route::post('/admin/dashboard/save-coupon', [CouponController::class, 'saveCoupo
 Route::get('/seller/dashboard', [SellerDashboardController::class, 'showDashboardPage'])->name('seller.dashboard');
 Route::get('/seller/dashboard/show-create-food-list', [SellerDashboardController::class, 'showCreateFoodList'])->name('seller.dashboard.showCreateFoodList');
 Route::post('/seller/dashboard/save-create-food', [SellerDashboardController::class, 'saveCreateFood']);
+Route::post('/seller/dashboard/get-restaurants', [MenuController::class, 'getRestaurants']);
+Route::post('/seller/dashboard/get-foods', [MenuController::class, 'getFoods']);
 
 Route::post('/stores/get-stores', [StoresController::class, 'getStores']);

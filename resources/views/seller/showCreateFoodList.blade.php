@@ -955,7 +955,6 @@
                             <li><a href="order-list.html">لیست سفارش</a></li>
                             <li><a href="customer-list.html">لیست مشتریان</a></li>
                             <li onclick="showCreateFoodList(this)"><a href="javascript:void()">ایجاد غذای جدید</a></li>
-                            <li><a href="{{ route('admin.dashboard.showCategoryList') }}">ویرایش دسته بندی ها</a>
                             </li>
                         </ul>
 

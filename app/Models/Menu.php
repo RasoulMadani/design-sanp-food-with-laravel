@@ -18,6 +18,6 @@ class Menu extends Model
     }
     public function coupons()
     {
-        return $this->belongsToMany(Coupon::class,'coupon_menu');
+        return $this->belongsToMany(Coupon::class, 'coupon_menu');
     }
 }

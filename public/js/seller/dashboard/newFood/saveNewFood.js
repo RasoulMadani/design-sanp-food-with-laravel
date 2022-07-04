@@ -41,6 +41,8 @@ function saveNewFood() {
 
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
+        console.log(this.response);
+        return;
         let response = JSON.parse(this.response);
         if (response.allah == "save") {
             document.getElementById(
