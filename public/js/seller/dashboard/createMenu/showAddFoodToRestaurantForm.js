@@ -13,6 +13,8 @@ function showAddFoodToRestaurantForm(event) {
         let htmlEntities = "";
         if (response.allah == "perform") {
             htmlEntities += `
+            <div id="messageLogin">
+            </div>
             <div class="col-lg-12">
         <div class="card">
             <div class="card-header">

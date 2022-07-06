@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use App\Models\Menu;
 use App\Models\Food;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -33,6 +34,7 @@ class MenuController extends Controller
     public function saveFoodsForAddTodRestaurant()
     {
         $foods = explode(',', request('foods'));
+        DB::beginTransaction();
         try {
             foreach ($foods as $food) {
                 // TODO اگر قبلا این غذا در این رستوران بود خطا بدهد
@@ -42,8 +44,10 @@ class MenuController extends Controller
                 $menu->food_id = $food;
                 $menu->save();
             }
+            DB::commit();
             return response()->json(['allah' => 'perform']);
         } catch (Exception $e) {
+            DB::rollback();
             return $e->getMessage();
         }
     }

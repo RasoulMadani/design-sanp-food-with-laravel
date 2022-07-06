@@ -17,63 +17,54 @@ function saveAddFoodToRestaurantForm(event) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
-        console.log(this.response);
-        return;
         let response = JSON.parse(this.response);
-        let htmlEntities = "";
         if (response.allah == "perform") {
-            htmlEntities += `
-                <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">غذاهای شما</h4>
+            document.getElementById(
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-success left-icon-big alert-dismissible fade show">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="btn-close"
+                >
+                    <span>
+                        <i class="mdi mdi-btn-close"></i>
+                    </span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span>
+                            <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">تبریک میگم !</h5>
+                        <p class="mb-0">غذای شما اضافه شد  .</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table
-                            class="table header-border"
-                            style="min-width: 500px;"
-                        >
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>انتخاب کنید</th>
-                                    <th>نام غذا</th>
-                                </tr>
-                            </thead>
-                            <tbody>`;
-            var myArray = [
-                "table-active",
-                "table-primary",
-                "table-success",
-                "table-info",
-                "table-warning",
-                "table-danger",
-            ];
-            for (const [key, payam] of Object.entries(response.foods)) {
-                var rand = myArray[(Math.random() * myArray.length) | 0];
-                let kelid = Number(key) + 1;
-                htmlEntities += `
-                                        <tr class="${rand}">
-                                            <td>${kelid}</td>
-                                            <td>
-                                            <input type="checkbox" name="foodsCheckbox" class="form-check-input" value="${payam.id}">
-                                            </td>
-                                            <td>${payam.name}</td>
-                                        </tr>
-                                        `;
-            }
-            htmlEntities += `</tbody>
-                </table>
             </div>
-        </div>
-    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                                <div class="col-sm-10">
-                                                    <button type="button" onclick="saveAddFoodToRestaurant()" class="btn btn-primary">اضافه کردن غذاها</button>
-                                                </div>
-                                            </div>`;
+        </div>`;
+        } else {
+            document.getElementById(
+                "messageLogin"
+            ).innerHTML = `<div class="col-xl-6">
+            <div class="alert alert-danger left-icon-big alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i class="mdi mdi-btn-close"></i></span>
+                </button>
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span><i class="mdi mdi-alert"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">متاسفانه غذا اضافه نشد</h5>
+                        <p class="mb-0">با پشتیبانی تماس بگیرید</p>
+                        // TODO قرار دادن شماره پشتیبانی و یا پیوند ارتباط بلادرنگ
+                    </div>
+                </div>
+            </div>
+        </div>`;
         }
         document.getElementById("mainDiv").innerHTML = htmlEntities;
     };
