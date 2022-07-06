@@ -1,5 +1,5 @@
 // in the name of allah
-function showRestaurants() {
+function showRestaurantsForAddPersent() {
     let token = document.querySelector('meta[name="csrf-token"]').content;
     let xhr = new XMLHttpRequest();
 
@@ -44,7 +44,7 @@ function showRestaurants() {
                 htmlEntities += `
                                     <tr class="${rand}">
                                         <td>${kelid}</td>
-                                        <td onclick="getRestaurantFood(this)" data-gs-id="${payam.id}"><a href="javascript:void()">${payam.name}</a></td>
+                                        <td onclick="getRestaurantFoodForAddPersent(this)" data-gs-id="${payam.id}"><a href="javascript:void()">${payam.name}</a></td>
                                     </tr>
                                     `;
             }

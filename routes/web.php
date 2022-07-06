@@ -38,6 +38,11 @@ Route::get('/seller/dashboard/show-create-food-list', [SellerDashboardController
 Route::post('/seller/dashboard/save-create-food', [SellerDashboardController::class, 'saveCreateFood']);
 Route::post('/seller/dashboard/get-restaurants', [MenuController::class, 'getRestaurants']);
 Route::post('/seller/dashboard/get-foods', [MenuController::class, 'getFoods']);
+
+Route::post('/seller/dashboard/add-coupon/get-foods-whit-coupon', [MenuController::class, 'getFoodsWithCoupon']);
+Route::post('/seller/dashboard/add-coupon/save-coupon-for-add-to-menu', [MenuController::class, 'saveCouponForFood']);
+
+
 Route::post('/seller/dashboard/create-menu/get-food-for-add', [MenuController::class, 'getFoodsForAddTodRestaurant']);
 Route::post('/seller/dashboard/create-menu/save-food-for-add-restaurant', [MenuController::class, 'saveFoodsForAddTodRestaurant']);
 

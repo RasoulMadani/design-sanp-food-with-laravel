@@ -957,6 +957,7 @@
                             {{-- <li onclick="showCreateFoodList(this)"><a href="javascript:void()">ایجاد غذای جدید</a></li> --}}
                             <li><a href="{{ route('seller.dashboard.showCreateFoodList') }}">ایجاد غذای جدید</a></li>
                             <li onclick="showRestaurants(this)"><a href="javascript:void()">ساخت منوی غذایی رستوران</a></li>
+                            <li onclick="showRestaurantsForAddPersent()"><a href="javascript:void()">ایجاد تخفیف روی غذا</a></li>
                         </ul>
 
                     </li>
@@ -1997,6 +1998,9 @@
     <script src="{{ asset('js/seller/dashboard/createMenu/getRestaurantFood.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\createMenu\showAddFoodToRestaurantForm.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\createMenu\saveAddFoodToRestaurantForm.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\addPersent\showRestaurantsForAddPersent.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\addPersent\getRestaurantFoodForAddPersent.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\addPersent\saveAddCouponToFood.js') }}"></script>
 
 </body>
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Menu;
 use App\Models\Food;
+use App\Models\Coupon;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -44,6 +45,30 @@ class MenuController extends Controller
                 $menu->food_id = $food;
                 $menu->save();
             }
+            DB::commit();
+            return response()->json(['allah' => 'perform']);
+        } catch (Exception $e) {
+            DB::rollback();
+            return $e->getMessage();
+        }
+    }
+    public function getFoodsWithCoupon()
+    {
+        try {
+            $foods = Menu::where('restaurant_id', request('id'))->get()->load('food');
+            $coupons = Coupon::all();
+            return response()->json(['allah' => 'perform', 'foods' => $foods, 'coupons' => $coupons]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function saveCouponForFood()
+    {
+        $foods = explode(',', request('menus'));
+        DB::beginTransaction();
+        try {
+            $coupon = Coupon::find(request('couponId'));
+            $coupon->menus()->sync($foods);
             DB::commit();
             return response()->json(['allah' => 'perform']);
         } catch (Exception $e) {

@@ -1,12 +1,12 @@
 // in the name of allah
-function getRestaurantFood(event) {
+function getRestaurantFoodForAddPersent(event) {
     // TODO اضافه کردن دکمه ی حذف غذا از رستوران
     let id = event.dataset.gsId;
     let token = document.querySelector('meta[name="csrf-token"]').content;
     let xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("POST", "/seller/dashboard/get-foods");
+    xhr.open("POST", "/seller/dashboard/add-coupon/get-foods-whit-coupon");
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
@@ -14,11 +14,30 @@ function getRestaurantFood(event) {
         let htmlEntities = "";
         if (response.allah == "perform") {
             htmlEntities += `
-            <div onclick="showAddFoodToRestaurantForm(this)" data-gs-id="${id}" class="col-lg-12 m-2"><a href="javascript:void()">اضافه کردن غذا به این رستوران</a></div>
+            <div id="messageLogin"></div>
+            <div class="col-xl-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"> انتخاب تخفیف</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form>
+										<select name="coupon" class="default-select form-control wide mb-3">
+                                        <option value="">یک تخفیف انتخاب کنید</option>`;
+            for (const [key, payam] of Object.entries(response.coupons)) {
+                htmlEntities += `<option value="${payam.id}">${payam.name}</option>`;
+            }
+            htmlEntities += `		</select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+					</div>
             <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">غذاهای این رستوران</h4>
+                <h4 class="card-title">غذاهایی که می خواهید تخفیف بخورد را انتخاب کنید</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,6 +48,7 @@ function getRestaurantFood(event) {
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>انتخاب کنید</th>
                                 <th>نام غذا</th>
                             </tr>
                         </thead>
@@ -47,6 +67,9 @@ function getRestaurantFood(event) {
                 htmlEntities += `
                                     <tr class="${rand}">
                                         <td>${kelid}</td>
+                                        <td>
+                                        <input type="checkbox" name="foodsCheckboxForAddPersent" class="form-check-input" value="${payam.id}">
+                                        </td>
                                         <td>${payam.food.name}</td>
                                     </tr>
                                     `;
@@ -56,7 +79,12 @@ function getRestaurantFood(event) {
         </div>
     </div>
 </div>
-                            </div>`;
+                            </div>
+                             <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <button type="button" onclick="saveAddCouponToFood(this)" data-gs-id="${id}" class="btn btn-primary">اضافه کردن تخفیف</button>
+                            </div>
+                        </div>`;
         }
         document.getElementById("mainDiv").innerHTML = htmlEntities;
     };
