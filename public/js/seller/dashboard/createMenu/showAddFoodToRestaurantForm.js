@@ -1,20 +1,22 @@
 // in the name of allah
-function showRestaurants() {
+function showAddFoodToRestaurantForm(event) {
+    let id = event.dataset.gsId;
     let token = document.querySelector('meta[name="csrf-token"]').content;
     let xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("POST", "/seller/dashboard/get-restaurants");
+    xhr.open("POST", "/seller/dashboard/create-menu/get-food-for-add");
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
         let response = JSON.parse(this.response);
         let htmlEntities = "";
         if (response.allah == "perform") {
-            htmlEntities += `<div class="col-lg-12">
+            htmlEntities += `
+            <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">رستوران های شما</h4>
+                <h4 class="card-title">غذاهای شما</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -25,7 +27,8 @@ function showRestaurants() {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>نام رستوران</th>
+                                <th>انتخاب کنید</th>
+                                <th>نام غذا</th>
                             </tr>
                         </thead>
                         <tbody>`;
@@ -37,13 +40,16 @@ function showRestaurants() {
                 "table-warning",
                 "table-danger",
             ];
-            for (const [key, payam] of Object.entries(response.restaurants)) {
+            for (const [key, payam] of Object.entries(response.foods)) {
                 var rand = myArray[(Math.random() * myArray.length) | 0];
                 let kelid = Number(key) + 1;
                 htmlEntities += `
                                     <tr class="${rand}">
                                         <td>${kelid}</td>
-                                        <td onclick="getRestaurantFood(this)" data-gs-id="${payam.id}"><a href="javascript:void()">${payam.name}</a></td>
+                                        <td>
+                                        <input type="checkbox" name="foodsCheckbox" class="form-check-input" value="${payam.id}">
+                                        </td>
+                                        <td>${payam.name}</td>
                                     </tr>
                                     `;
             }
@@ -52,7 +58,12 @@ function showRestaurants() {
         </div>
     </div>
 </div>
-                            </div>`;
+                            </div>
+                            <div class="mb-3 row">
+                                            <div class="col-sm-10">
+                                                <button type="button" onclick="saveAddFoodToRestaurantForm(this)" data-gs-id="${id}" class="btn btn-primary">اضافه کردن غذاها</button>
+                                            </div>
+                                        </div>`;
         }
         document.getElementById("mainDiv").innerHTML = htmlEntities;
     };

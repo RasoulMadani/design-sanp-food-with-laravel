@@ -1995,6 +1995,8 @@
     <script src="{{ asset('js/stores/getStores.js') }}"></script>
     <script src="{{ asset('js/seller/dashboard/createMenu/showRestaurants.js') }}"></script>
     <script src="{{ asset('js/seller/dashboard/createMenu/getRestaurantFood.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\createMenu\showAddFoodToRestaurantForm.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\createMenu\saveAddFoodToRestaurantForm.js') }}"></script>
 
 </body>
 

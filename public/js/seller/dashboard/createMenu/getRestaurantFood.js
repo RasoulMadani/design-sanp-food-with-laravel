@@ -1,5 +1,6 @@
 // in the name of allah
-function getRestaurantFood(id) {
+function getRestaurantFood(event) {
+    let id = event.dataset.gsId;
     let token = document.querySelector('meta[name="csrf-token"]').content;
     let xhr = new XMLHttpRequest();
 
@@ -8,15 +9,15 @@ function getRestaurantFood(id) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
-        console.log(this.response);
-        return;
         let response = JSON.parse(this.response);
         let htmlEntities = "";
         if (response.allah == "perform") {
-            htmlEntities += `<div class="col-lg-12">
+            htmlEntities += `
+            <div onclick="showAddFoodToRestaurantForm(this)" data-gs-id="${id}" class="col-lg-12 m-2"><a href="javascript:void()">اضافه کردن غذا به این رستوران</a></div>
+            <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">رستوران های شما</h4>
+                <h4 class="card-title">غذاهای این رستوران</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,7 +28,7 @@ function getRestaurantFood(id) {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>نام رستوران</th>
+                                <th>نام غذا</th>
                             </tr>
                         </thead>
                         <tbody>`;
@@ -39,13 +40,13 @@ function getRestaurantFood(id) {
                 "table-warning",
                 "table-danger",
             ];
-            for (const [key, payam] of Object.entries(response.restaurants)) {
+            for (const [key, payam] of Object.entries(response.foods)) {
                 var rand = myArray[(Math.random() * myArray.length) | 0];
                 let kelid = Number(key) + 1;
                 htmlEntities += `
                                     <tr class="${rand}">
                                         <td>${kelid}</td>
-                                        <td onclick="getRestaurantFood(${payam.id})">${payam.name}</td>
+                                        <td>${payam.food.name}</td>
                                     </tr>
                                     `;
             }

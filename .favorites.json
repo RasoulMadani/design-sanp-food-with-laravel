@@ -55,11 +55,11 @@
     },
     {
         "type": "Directory",
-        "name": "e:\\laravel\\GsSnapFood\\database",
+        "name": "e:\\laravel\\GsSnapFood\\database\\migrations",
         "parent_id": null,
-        "fsPath": "e:\\laravel\\GsSnapFood\\database",
+        "fsPath": "e:\\laravel\\GsSnapFood\\database\\migrations",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "h0W6sgPrKZ7Umtba"
+        "id": "c5d9Bak8UbuoyKeJ"
     }
 ]
