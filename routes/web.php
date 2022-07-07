@@ -9,6 +9,7 @@ use App\Http\Controllers\Seller\SellerDashboardController;
 use App\Http\Controllers\Stores\StoresController;
 use App\Http\Controllers\Seller\Dashboard\MenuController;
 use App\Http\Controllers\Config\ConfigController;
+use App\Http\Controllers\Seller\Dashboard\RestaurantInformationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,5 +46,6 @@ Route::post('/seller/dashboard/add-coupon/save-coupon-for-add-to-menu', [MenuCon
 
 Route::post('/seller/dashboard/create-menu/get-food-for-add', [MenuController::class, 'getFoodsForAddTodRestaurant']);
 Route::post('/seller/dashboard/create-menu/save-food-for-add-restaurant', [MenuController::class, 'saveFoodsForAddTodRestaurant']);
+Route::post('/seller/dashboard/edit-restaurant-information/get-restaurant-informations', [RestaurantInformationController::class, 'getRestaurantInformations']);
 
 Route::post('/stores/get-stores', [StoresController::class, 'getStores']);
