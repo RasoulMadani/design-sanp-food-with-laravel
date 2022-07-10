@@ -19,3 +19,11 @@ pm.environment.set('XSRF_TOKEN', cookies.get('XSRF-TOKEN'))
 })
 
 https://laravel.com/docs/9.x/eloquent-relationships#filtering-queries-via-intermediate-table-columns
+
+
+https://www.guru99.com/laravel-interview-questions.html
+
+https://habitual-bandicoot-8f2.notion.site/Interview-Q-A-286e997f891947909aa10d97508d50a7
+
+فلان امکان رو می خواهیم انجام بدیم چه طوری باید پیاده کنیم ؟
+سوالات بیشتر مسئله ای هست ؟ 

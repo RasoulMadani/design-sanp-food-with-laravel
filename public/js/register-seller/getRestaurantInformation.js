@@ -7,6 +7,7 @@ function getRestaurantInformation(event) {
             return;
         }
     }
+    // TODO انختاب دسته بندی به صورت چک باکس
     let typeOfRestaurant = document.querySelector(
         "select[name='typeOfRestaurant']"
     ).value;
