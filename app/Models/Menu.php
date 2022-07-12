@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
-    public function food()
+    public function ghazas()
     {
-        return $this->belongsTo(Food::class);
+        return $this->belongsTo(Ghaza::class);
     }
     public function resaurant()
     {

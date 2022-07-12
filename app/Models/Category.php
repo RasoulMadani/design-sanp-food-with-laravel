@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    public function foods()
+    public function ghazas()
     {
-        return $this->morphedByMany(Food::class, 'categorizable');
+        return $this->morphedByMany(Ghaza::class, 'categorizable');
     }
 
     public function restaurants()

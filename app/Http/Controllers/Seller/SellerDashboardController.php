@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Food;
+use App\Models\Ghaza;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +37,7 @@ class SellerDashboardController extends Controller
 
         try {
             // TODO ثبت کردن شناسه کاربر صاحب رستوران که برای این کار فرد اول باید ورود کند و بعد رستوران بسازد
-            $createFood = new Food;
+            $createFood = new Ghaza;
             $createFood->name = request('foodName');
             $createFood->user_id = Auth::id();
             $createFood->ingredient = request('ingredientsFood');

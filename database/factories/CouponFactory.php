@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategoryFactory extends Factory
+class CouponFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,15 +15,9 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'group' => 'restaurant',
+            'code' => $this->faker->word,
+            'persent' => $this->faker->numberBetween(10,30),
+            'price' => $this->faker->numberBetween(10,30),
         ];
-    }
-    public function suspended()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'group' => 'food',
-            ];
-        });
     }
 }

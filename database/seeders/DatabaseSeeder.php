@@ -6,12 +6,13 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\PermissionsDemoSeeder;
 use App\Models\User;
 use App\Models\Image;
-use App\Models\Food;
+use App\Models\Ghaza;
 use App\Models\Restaurant;
 use App\Models\Address;
 use App\Models\Category;
 use App\Models\Phone;
 use App\Models\Menu;
+use App\Models\Coupon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -65,10 +66,14 @@ class DatabaseSeeder extends Seeder
         //     $image->restaurants()->save($restaurant[$i]);
         //     $i++;
         // }
-        User::factory(20)->has(
+        $users = User::factory(5)->has(
+            Ghaza::factory(1)->has(
+                Category::factory()->suspended()
+            )
+        )->hasPhones(1)->hasAddresses(1)->has(
             Restaurant::factory(rand(1, 2))
                 ->has(
-                    Category::factory(rand(1, 3))
+                    Category::factory()
                 )->has(
                     Image::factory(rand(3, 7))
                 )->has(
@@ -77,17 +82,16 @@ class DatabaseSeeder extends Seeder
                     Phone::factory()
                 )
                 ->has(
-                    Food::factory(rand(5, 20))
+                    Menu::factory(2)
                         ->has(
-                            Image::factory(rand(3, 7))
-                        )
-                        ->has(
-                            Category::factory(rand(1, 3))
-                        )
-                        ->has(
-                            Menu::factory()
+                            Ghaza::factory()
+                        )->has(
+                            Coupon::factory()
                         )
                 )
         )->create();
+        foreach ($users as $user) {
+            $user->assignRole('seller');
+        }
     }
 }

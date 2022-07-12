@@ -5,10 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Food extends Model
+class Ghaza extends Model
 {
     use HasFactory;
-    protected $table = 'foods';
+    protected $fillable = [
+        'user_id',
+        'name',
+        'ingredient',
+        'price',
+    ];
+    protected $table = 'ghazas';
     public function categories()
     {
         return $this->morphToMany(Category::class, 'categorizable');

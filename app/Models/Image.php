@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-    public function foods()
+    public function ghazas()
     {
-        return $this->morphedByMany(Food::class, 'imagezable');
+        return $this->morphedByMany(Ghaza::class, 'imagezable');
     }
 
     public function restaurants()

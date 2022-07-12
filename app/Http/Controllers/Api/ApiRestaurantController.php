@@ -32,7 +32,7 @@ class ApiRestaurantController extends Controller
     {
         try {
             $category_id = $restaurant_id;
-            $restaurant = Restaurant::where('id', $restaurant_id)->get()->load('foods');
+            $restaurant = Restaurant::where('id', $restaurant_id)->get()->load('ghazas');
             return response()->json($restaurant);
         } catch (\Illuminate\Validation\ValidationException $th) {
             return $th->validator->errors();

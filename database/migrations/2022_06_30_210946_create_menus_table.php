@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Restaurant;
-use App\Models\Food;
+use App\Models\Ghaza;
 use App\Models\Coupon;
 
 class CreateMenusTable extends Migration
@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Restaurant::class);
-            $table->foreignIdFor(Food::class);
+            $table->foreignIdFor(Ghaza::class);
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Menu;
-use App\Models\Food;
+use App\Models\Ghaza;
 use App\Models\Coupon;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -20,13 +20,13 @@ class MenuController extends Controller
     }
     public function getFoods()
     {
-        $foods = Menu::where('restaurant_id', request('id'))->get()->load('food');
+        $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghazas');
         return response()->json(['allah' => 'perform', 'foods' => $foods]);
     }
     public function getFoodsForAddTodRestaurant()
     {
         try {
-            $foods = Food::where('user_id', auth()->user()->id)->get();
+            $foods = Ghaza::where('user_id', auth()->user()->id)->get();
             return response()->json(['allah' => 'perform', 'foods' => $foods]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -55,7 +55,7 @@ class MenuController extends Controller
     public function getFoodsWithCoupon()
     {
         try {
-            $foods = Menu::where('restaurant_id', request('id'))->get()->load('food');
+            $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghazas');
             $coupons = Coupon::all();
             return response()->json(['allah' => 'perform', 'foods' => $foods, 'coupons' => $coupons]);
         } catch (Exception $e) {
