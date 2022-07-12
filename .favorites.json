@@ -61,5 +61,14 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "c5d9Bak8UbuoyKeJ"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\database\\factories",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\database\\factories",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Kbvj2LEe6mdVw4Ty"
     }
 ]

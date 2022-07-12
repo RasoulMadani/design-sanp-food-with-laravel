@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiUserController;
 use App\Http\Controllers\Api\ApiRestaurantController;
 use App\Http\Controllers\Api\Auth\ApiLoginController;
+use App\Http\Controllers\Api\OrderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,7 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/signin', [ApiLoginController::class, 'signin']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    
+
     Route::get('/addresses', [ApiUserController::class, 'getAddresses']);
     Route::post('/addresses', [ApiUserController::class, 'addAddress']);
     Route::get('/addresses/{id}', [ApiUserController::class, 'setDefaultAddress']);
@@ -38,4 +39,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/restaurants/{restaurant_id}/foods', [ApiRestaurantController::class, 'getRestaurantsWithFoods']);
 
     Route::post('/sign-out', [ApiLoginController::class, 'logout']);
+    // Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'accounts', 'as' => 'account.'], function () {
+    //     Route::apiResource('/orders', [ApiUserController::class, 'getAddresses']);
+    // });
+    Route::group([], function () {
+        Route::apiResource('/orders', OrderController::class);
+    });
 });

@@ -3,8 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User;
-class CreateFoodsTable extends Migration
+use App\Models\Menu;
+use App\Models\Cart;
+
+
+class CreateCartItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +16,14 @@ class CreateFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('foods', function (Blueprint $table) {
+        Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->string('name');
-            $table->string('ingredient');
-            $table->integer('price');
+            $table->foreignIdFor(Cart::class);
+            $table->foreignIdFor(Menu::class);
+            $table->integer('quantity')->default(1);
+            $table->integer('unit_price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +34,6 @@ class CreateFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('cart_items');
     }
 }

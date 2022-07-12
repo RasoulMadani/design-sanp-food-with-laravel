@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
+use App\Models\Menu;
 
-class CreateRestaurantsTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +15,13 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignIdFor(User::class);
-            // $table->string('phone');
-            // // TODO یک رستوران باید بتونه چندین نشانی داشته باشه که جدول جدا نیاز داره
-            // $table->string('address');
-            $table->string('account_payment');
+            $table->string('discount_code')->nullable();
+            $table->integer('discount_amount')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +32,6 @@ class CreateRestaurantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('carts');
     }
 }
