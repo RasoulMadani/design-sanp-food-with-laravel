@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\ApiUserController;
 use App\Http\Controllers\Api\ApiRestaurantController;
 use App\Http\Controllers\Api\Auth\ApiLoginController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Seller\Dashboard\OrderController as SellerOrderController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -44,5 +46,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // });
     Route::group([], function () {
         Route::apiResource('/orders', OrderController::class);
+        Route::get('/orders/{cart_id}/pay', [OrderController::class, 'pay']);
     });
+});
+Route::prefix('seller/dashboard')->group(function () {
+    Route::resource('/orders', SellerOrderController::class);
 });

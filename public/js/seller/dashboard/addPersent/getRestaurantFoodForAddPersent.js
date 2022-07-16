@@ -70,7 +70,7 @@ function getRestaurantFoodForAddPersent(event) {
                                         <td>
                                         <input type="checkbox" name="foodsCheckboxForAddPersent" class="form-check-input" value="${payam.id}">
                                         </td>
-                                        <td>${payam.food.name}</td>
+                                        <td>${payam.ghaza.name}</td>
                                     </tr>
                                     `;
             }

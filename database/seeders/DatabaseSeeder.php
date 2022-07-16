@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create([
             'firstName' => 'Example Super-Admin User',
             'lastName' => 'Example Super-Admin User',
-            'email' => 'superadmin@example.com',
+            'email' => 'ghasem@soleimani.ir',
+            'password' => 'Aa123456',
         ]);
         $user->assignRole('buyer');
 
@@ -67,11 +68,11 @@ class DatabaseSeeder extends Seeder
         //     $i++;
         // }
         $users = User::factory(5)->has(
-            Ghaza::factory(1)->has(
+            Ghaza::factory(5)->has(
                 Category::factory()->suspended()
             )
         )->hasPhones(1)->hasAddresses(1)->has(
-            Restaurant::factory(rand(1, 2))
+            Restaurant::factory(rand(2, 4))
                 ->has(
                     Category::factory()
                 )->has(
@@ -82,7 +83,7 @@ class DatabaseSeeder extends Seeder
                     Phone::factory()
                 )
                 ->has(
-                    Menu::factory(2)
+                    Menu::factory(5)
                         ->has(
                             Ghaza::factory()
                         )->has(

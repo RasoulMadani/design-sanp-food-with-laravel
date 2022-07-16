@@ -20,7 +20,7 @@ class MenuController extends Controller
     }
     public function getFoods()
     {
-        $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghazas');
+        $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghaza');
         return response()->json(['allah' => 'perform', 'foods' => $foods]);
     }
     public function getFoodsForAddTodRestaurant()
@@ -55,7 +55,7 @@ class MenuController extends Controller
     public function getFoodsWithCoupon()
     {
         try {
-            $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghazas');
+            $foods = Menu::where('restaurant_id', request('id'))->get()->load('ghaza');
             $coupons = Coupon::all();
             return response()->json(['allah' => 'perform', 'foods' => $foods, 'coupons' => $coupons]);
         } catch (Exception $e) {

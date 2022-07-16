@@ -959,6 +959,7 @@
                             <li onclick="showRestaurants(this)"><a href="javascript:void()">ساخت منوی غذایی رستوران</a></li>
                             <li onclick="showRestaurantsForAddPersent()"><a href="javascript:void()">ایجاد تخفیف روی غذا</a></li>
                             <li onclick="showRestaurantsForEditInformations()"><a href="javascript:void()">ویرایش اطلاعات رستوران</a></li>
+                            <li onclick="showRestaurantsForOrders()"><a href="javascript:void()">نمایش سفارشات</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -2003,6 +2004,8 @@
     <script src="{{ asset('js\seller\dashboard\addPersent\saveAddCouponToFood.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\showRestaurantsForEditInformations.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\getRestaurantIformations.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\orders\showRestaurantsForOrders.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\orders\showOrders.js') }}"></script>
 
 </body>
 

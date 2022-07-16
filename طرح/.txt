@@ -3,11 +3,13 @@ https://documenter.getpostman.com/view/18401078/Uz5JGaJF
 https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
 
 آموزش اعتبار سنجی لاراول
+
 https://webprog.io/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-Laravel/episode/88
 
 طرح پایانی
 https://docs.google.com/document/d/1j37RwNPYl0aew9DU06ViFdxc95yCiwv9wFHHLe9g2OU/edit
 # برای پست من 
+
 برای گرفتن 
 pm.sendRequest({
     url: pm.variables.get('APP_URL') + 'sanctum/csrf-cookie',
@@ -26,4 +28,43 @@ https://www.guru99.com/laravel-interview-questions.html
 https://habitual-bandicoot-8f2.notion.site/Interview-Q-A-286e997f891947909aa10d97508d50a7
 
 فلان امکان رو می خواهیم انجام بدیم چه طوری باید پیاده کنیم ؟
+
 سوالات بیشتر مسئله ای هست ؟ 
+
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+
+
+https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
+
+ امتحان نسخه پی اچ پی
+nano /var/www/html/index.html
+
+sudo apt install php8.1-mbstring php8.1-xml php8.1-curl
+sudo apt install php8.1-*
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+lamp in linux
+
+sudo systemctl restart apache2
+
+https://www.youtube.com/watch?v=5s-_SnVl-1g&t=114s
+
+جاب و کیوها و نوتیف ها
+
+
+https://github.com/MohammadShabaniSBU/image-resize
+
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+
+
+https://soroushkaviani.ir/Docker.pdf
+
+
+https://www.youtube.com/watch?v=uhgIhLsQR3o
+

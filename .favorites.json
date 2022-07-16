@@ -70,5 +70,23 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "Kbvj2LEe6mdVw4Ty"
+    },
+    {
+        "type": "File",
+        "name": "e:\\laravel\\GsSnapFood\\database\\seeders\\DatabaseSeeder.php",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\database\\seeders\\DatabaseSeeder.php",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "4O2JupfyFZRvDI9b"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\app\\Http\\Resources\\Seller\\Dashboard",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\app\\Http\\Resources\\Seller\\Dashboard",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Wra5C7d9NgEUM6iK"
     }
 ]

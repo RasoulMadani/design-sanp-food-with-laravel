@@ -1,26 +1,23 @@
-// in the name of allah
-function getRestaurantFood(event) {
-    // TODO اضافه کردن دکمه ی حذف غذا از رستوران
-    let id = event.dataset.gsId;
+// in name of allah
+function showRestaurantsForOrders() {
     let token = document.querySelector('meta[name="csrf-token"]').content;
     let xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("POST", "/seller/dashboard/get-foods");
+    xhr.open("POST", "/seller/dashboard/get-restaurants");
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
         let response = JSON.parse(this.response);
         let htmlEntities = "";
         if (response.allah == "perform") {
-            htmlEntities += `
-            <div onclick="showAddFoodToRestaurantForm(this)" data-gs-id="${id}" class="col-lg-12 m-2"><a href="javascript:void()">اضافه کردن غذا به این رستوران</a></div>
-            <div class="col-lg-12">
+            htmlEntities += `<div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">غذاهای این رستوران</h4>
-            </div>
-            <div class="card-body">
+                <h4 class="card-title">رستوران های شما</h4>
+                </div>
+                <div class="card-body">
+                <span class="h5">یک رستوران را انتخاب کنید</span>
                 <div class="table-responsive">
                     <table
                         class="table header-border"
@@ -29,7 +26,7 @@ function getRestaurantFood(event) {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>نام غذا</th>
+                                <th>نام رستوران</th>
                             </tr>
                         </thead>
                         <tbody>`;
@@ -41,13 +38,13 @@ function getRestaurantFood(event) {
                 "table-warning",
                 "table-danger",
             ];
-            for (const [key, payam] of Object.entries(response.foods)) {
+            for (const [key, payam] of Object.entries(response.restaurants)) {
                 var rand = myArray[(Math.random() * myArray.length) | 0];
                 let kelid = Number(key) + 1;
                 htmlEntities += `
                                     <tr class="${rand}">
                                         <td>${kelid}</td>
-                                        <td>${payam.ghaza.name}</td>
+                                        <td onclick="showOrders(this)" data-gs-id="${payam.id}"><a href="javascript:void()">${payam.name}</a></td>
                                     </tr>
                                     `;
             }
@@ -62,5 +59,5 @@ function getRestaurantFood(event) {
     };
 
     // Send the data.
-    xhr.send(`_token=${token}&id=${id}`);
+    xhr.send(`_token=${token}`);
 }

@@ -20,6 +20,7 @@ use App\Http\Controllers\Seller\Dashboard\RestaurantInformationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/1', [ConfigController::class, 'clearRoute']);
 Route::get('/public/register-seller', [RegisterController::class, 'showPageRegister']);
 Route::post('/public/register-seller/get-personal-information', [RegisterController::class, 'getPersonalInformation']);
@@ -49,3 +50,5 @@ Route::post('/seller/dashboard/create-menu/save-food-for-add-restaurant', [MenuC
 Route::post('/seller/dashboard/edit-restaurant-information/get-restaurant-informations', [RestaurantInformationController::class, 'getRestaurantInformations']);
 
 Route::post('/stores/get-stores', [StoresController::class, 'getStores']);
+
+
