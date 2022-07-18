@@ -17,7 +17,6 @@ class LoginController extends Controller
     {
         try {
             $credentials = $request->validate([
-                // email
                 'email' => 'required|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
                 'password' => 'required|min:8',
             ]);
@@ -29,12 +28,6 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return response()->json(['allah' => "loginuser"]);
         }
-        // $karbar = User::where('email', request('email'))->first();
-        // if (auth()->user()->password == request('password')) {
-        // if ($karbar) {
-        //     Auth::login($karbar, $remember = true);
-        //     $request->session()->regenerate();
-        // }
         return response()->json(['allah' => "notexist"]);
     }
 }

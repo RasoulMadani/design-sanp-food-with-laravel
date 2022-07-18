@@ -18,7 +18,7 @@ class GhazaFactory extends Factory
             'user_id' => User::select('id')->get()->random()->id,
             'name' => $this->faker->word,
             'ingredient' => $this->faker->text,
-            'price' => $this->faker->numberBetween(100, 200),
+            'price' => $this->faker->numberBetween(100, 200)
         ];
     }
 }

@@ -2006,6 +2006,7 @@
     <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\getRestaurantIformations.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\showRestaurantsForOrders.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\showOrders.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\orders\showOrderDetails.js') }}"></script>
 
 </body>
 

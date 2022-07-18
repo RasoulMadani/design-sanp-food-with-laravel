@@ -5,15 +5,12 @@ function showOrders(event) {
     let xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("GET", `/api/seller/dashboard/orders?id=${id}`);
+    xhr.open("GET", `/seller/dashboard/orders?id=${id}`);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //* Set up a handler for when the task for the request is complete
     xhr.onload = function () {
         let response = JSON.parse(this.response);
-        // console.log(this.response);
         let lengthResponse = Object.keys(response.carts).length;
-        console.log(lengthResponse);
-        // return;
         let htmlEntities = "";
         if (response.allah == "perform") {
             htmlEntities += `
@@ -49,7 +46,15 @@ function showOrders(event) {
                 "table-danger",
             ];
             let allah = 1;
-            for (const [key, payam] of Object.entries(response.carts)) {
+            // const entries = Object.entries(response.carts);
+            // const nonEmptyOrNull = entries.filter(
+            //     ([key, val]) =>
+            //         val !== "" && val !== null && !Array.isArray(val)
+            // );
+            // let output = Object.fromEntries(nonEmptyOrNull);
+            let output = response.carts;
+            // output = [output];
+            for (const [key, payam] of Object.entries(output)) {
                 var rand = myArray[(Math.random() * myArray.length) | 0];
                 let kelid = Number(key);
                 if (kelid == 0) {
@@ -61,7 +66,7 @@ function showOrders(event) {
                                                 <label class="form-check-label" for="checkbox"></label>
                                             </div>
                                         </td>
-                                        <td class="py-2">
+                                        <td class="py-2"  style="cursor: pointer;" onclick="showOrderDetails(this)" data-gs-order-id="${payam.idUser}" data-gs-restaurant-id="${payam.idRestaurant}">
                                             <a href="#">
                                                 <strong>#181</strong></a> توسط <strong>${payam.firstNameUser}</strong><br /><a href="mailto:${payam.email}">${payam.email}</a></td>
                                         <td class="py-2">1400/04/20</td>
@@ -86,8 +91,7 @@ function showOrders(event) {
                                         `;
                 } else if (
                     response[kelid + 1] &&
-                    response.carts[kelid + 1].idUser !=
-                        response.carts[kelid].idUser
+                    output[kelid + 1].idUser != output[kelid].idUser
                 ) {
                     htmlEntities += `
                     <tr class="btn-reveal-trigger">
@@ -97,7 +101,7 @@ function showOrders(event) {
                                                 <label class="form-check-label" for="checkbox"></label>
                                             </div>
                                         </td>
-                                        <td class="py-2">
+                                        <td class="py-2"  style="cursor: pointer;" onclick="showOrderDetails(this)" data-gs-order-id="${payam.idUser}" data-gs-restaurant-id="${payam.idRestaurant}">
                                             <a href="#">
                                                 <strong>#181</strong></a> توسط <strong>${payam.firstNameUser}</strong><br /><a href="mailto:${payam.email}">${payam.email}</a></td>
                                         <td class="py-2">1400/04/20</td>
@@ -122,8 +126,7 @@ function showOrders(event) {
                                     `;
                 } else if (
                     kelid == lengthResponse - 1 &&
-                    response.carts[kelid - 1].idUser !=
-                        response.carts[kelid].idUser
+                    output[kelid - 1].idUser != output[kelid].idUser
                 ) {
                     htmlEntities += `
                     <tr class="btn-reveal-trigger">
@@ -133,7 +136,7 @@ function showOrders(event) {
                                                 <label class="form-check-label" for="checkbox"></label>
                                             </div>
                                         </td>
-                                        <td class="py-2">
+                                        <td class="py-2"  style="cursor: pointer;" onclick="showOrderDetails(this)" data-gs-order-id="${payam.idUser}" data-gs-restaurant-id="${payam.idRestaurant}">
                                             <a href="#">
                                                 <strong>#181</strong></a> توسط <strong>${payam.firstNameUser}</strong><br /><a href="mailto:${payam.email}">${payam.email}</a></td>
                                         <td class="py-2">1400/04/20</td>

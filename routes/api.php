@@ -49,6 +49,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/orders/{cart_id}/pay', [OrderController::class, 'pay']);
     });
 });
-Route::prefix('seller/dashboard')->group(function () {
-    Route::resource('/orders', SellerOrderController::class);
-});
+

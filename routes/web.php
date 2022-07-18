@@ -10,6 +10,7 @@ use App\Http\Controllers\Stores\StoresController;
 use App\Http\Controllers\Seller\Dashboard\MenuController;
 use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Seller\Dashboard\RestaurantInformationController;
+use App\Http\Controllers\Seller\Dashboard\OrderController as SellerOrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,5 +51,9 @@ Route::post('/seller/dashboard/create-menu/save-food-for-add-restaurant', [MenuC
 Route::post('/seller/dashboard/edit-restaurant-information/get-restaurant-informations', [RestaurantInformationController::class, 'getRestaurantInformations']);
 
 Route::post('/stores/get-stores', [StoresController::class, 'getStores']);
+
+Route::prefix('seller/dashboard')->group(function () {
+    Route::resource('/orders', SellerOrderController::class);
+});
 
 
