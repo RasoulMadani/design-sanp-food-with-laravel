@@ -22,6 +22,7 @@ class CreateCartItemsTable extends Migration
             $table->foreignIdFor(Menu::class);
             $table->integer('quantity')->default(1);
             $table->integer('unit_price');
+            $table->string('status')->default('check');
             $table->timestamps();
             $table->softDeletes();
         });

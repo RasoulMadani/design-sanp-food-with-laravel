@@ -18,6 +18,7 @@ function showOrderDetails(event) {
         // console.log(this.response);
         let lengthResponse = Object.keys(response.cartItems).length;
         let htmlEntities = "";
+        let statusArray = [];
         if (response.allah == "perform") {
             htmlEntities += `
             <div class="form-head d-flex mb-3 mb-md-5 align-items-start flex-wrap">
@@ -40,11 +41,13 @@ function showOrderDetails(event) {
 								<path d="M4.12451 9.62501C4.8839 9.62501 5.49951 9.0094 5.49951 8.25001C5.49951 7.49062 4.8839 6.87502 4.12451 6.87502C3.36512 6.87502 2.74951 7.49062 2.74951 8.25001C2.74951 9.0094 3.36512 9.62501 4.12451 9.62501Z" fill="white"></path>
 								<path d="M2.75049 24.75C3.50988 24.75 4.12549 24.1344 4.12549 23.375C4.12549 22.6156 3.50988 22 2.75049 22C1.9911 22 1.37549 22.6156 1.37549 23.375C1.37549 24.1344 1.9911 24.75 2.75049 24.75Z" fill="white"></path>
 							</svg>
-							تحویل
+							<span id="textStatus">تحویل</span>
 						</div>
 						<div class="dropdown-menu dropdown-menu-left">
-							<a class="dropdown-item" href="#">لیست الف تا ی</a>
-							<a class="dropdown-item" href="#">لیست ی تا الف</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="check" href="javascript:void(0);">در حال بررسی</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="prepare" href="javascript:void(0);">در حال آماده سازی</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="send" href="javascript:void(0);">ارسال به مقصد</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="delivered" href="javascript:void(0);">تحویل داده شد</a>
 						</div>
 					</div>
 				</div>
@@ -55,28 +58,28 @@ function showOrderDetails(event) {
 								<div class="card">
 									<div class="widget-timeline-icon">
 										<ul class="timeline">
-											<li>
+											<li class="check">
 												<div class="icon bg-primary"></div>
 												<a class="timeline-panel text-muted" href="#">
-													<h4 class="mb-2 mt-0">ثبت سفارش</h4>
+													<h4 class="mb-2 mt-0">در حال بررسی</h4>
 													<p class="fs-14 mb-0 ">شنبه , 21 آبان 1400, 11:49 صبح </p>
 												</a>
 											</li>
-											<li>
+											<li class="prepare">
 												<div class="icon bg-primary"></div>
 												<a class="timeline-panel text-muted" href="#">
-													<h4 class="mb-2 mt-0">پرداخت موفق</h4>
+													<h4 class="mb-2 mt-0">در حال آماده سازی</h4>
 													<p class="fs-14 mb-0 ">یک شنبه, 22 آبان 1400, 10:44 صبح</p>
 												</a>
 											</li>
-											<li class="border-dark">
+											<li class="send">
 												<div class="icon bg-primary"></div>
 												<a class="timeline-panel text-muted" href="#">
-													<h4 class="mb-2 mt-0">در حال ارسال</h4>
+													<h4 class="mb-2 mt-0">ارسال به مقصد</h4>
 													<p class="fs-14 mb-0 ">دوشنبه, 23 آبان 1400, 01:24 عصر</p>
 												</a>
 											</li>
-											<li>
+											<li class="delivered">
 												<div class="icon bg-primary"></div>
 												<a class="timeline-panel text-muted" href="#">
 													<h4 class="mb-2 mt-0">سفارش تحویل داده شد</h4>
@@ -141,14 +144,16 @@ function showOrderDetails(event) {
 													<th class="my-0 text-black font-w500 fs-20 wspace-no d-md-none d-lg-table-cell">قیمت کل</th>
 													<th></th>
 												</tr>`;
+
             for (const [key, payam] of Object.entries(response.cartItems)) {
                 if (payam === null) {
                     continue;
                 }
+                statusArray.push(payam.status);
                 let totalPrice =
                     Number(payam.quantity) * Number(payam.unitPrice);
                 htmlEntities += `
-															<tr>
+															<tr class="cartItem" data-gs-id-cart-item="${payam.idCartItem}">
 																<td>
 																	<div class="media">
 																		<a href="ecom-product-detail.html"><img class="me-3 img-fluid rounded" width="85" src="images/card/pic5.jpg" alt="عکس"></a>
@@ -276,16 +281,35 @@ function showOrderDetails(event) {
 						</div>
 					</div>
 				</div>`;
-            var myArray = [
-                "table-active",
-                "table-primary",
-                "table-success",
-                "table-info",
-                "table-warning",
-                "table-danger",
-            ];
         }
         document.getElementById("mainDiv").innerHTML = htmlEntities;
+        let textStatus = statusArray.includes("delivered")
+            ? "تحویل داده شد"
+            : statusArray.includes("send")
+            ? "ارسال به مقصد"
+            : statusArray.includes("prepare")
+            ? "در حال آماده سازی"
+            : statusArray.includes("check")
+            ? "در حال بررسی"
+            : "در حال بررسی";
+
+        document.getElementById("textStatus").innerHTML = textStatus;
+
+        let lineStatus = statusArray.includes("delivered")
+            ? false
+            : statusArray.includes("send")
+            ? document.querySelectorAll(".delivered, .send")
+            : statusArray.includes("prepare")
+            ? document.querySelectorAll(".delivered , .send,.prepare")
+            : statusArray.includes("check")
+            ? document.querySelectorAll(".delivered , .send, .prepare ,.check")
+            : document.querySelectorAll(".delivered , .send, .prepare,.check");
+        console.log(lineStatus);
+        if (lineStatus) {
+            [...lineStatus].forEach((span) =>
+                span.classList.add("border-dark")
+            );
+        }
     };
 
     // Send the data.

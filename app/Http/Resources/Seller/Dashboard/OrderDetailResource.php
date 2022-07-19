@@ -19,6 +19,7 @@ class OrderDetailResource extends JsonResource
                 'idCartItem' => $this->id,
                 'quantity' => $this->quantity,
                 'unitPrice' => $this->unit_price,
+                'status' => $this->status,
                 'nameGhaza' => $this->menu->ghaza->name,
             ];
         }

@@ -62,17 +62,17 @@ class OrderController extends Controller
         // $cartItem = Cart::where('user_id', $id)->with('cartItems.menu.ghaza')->get();
         $cartItem = Cart::where('user_id', $id)->with([
             'cartItems' => function ($q) {
-                $q->select('id', 'cart_id', 'menu_id', 'quantity', 'unit_price');
+                $q->select('id', 'cart_id', 'menu_id', 'quantity', 'unit_price', 'status');
                 $q->with(['menu' => function ($q) {
                     $q->where('restaurant_id', request('restaurantId'));
                     $q->select('id', 'ghaza_id');
                     $q->with(['ghaza' => function ($q) {
                         $q->select('id', 'name', 'user_id');
                         $q->with(['user' => function ($q) {
-                            $q->with(['addresses' => function($q){
+                            $q->with(['addresses' => function ($q) {
                                 $q->select('textAddress');
                             }]);
-                            $q->with(['phones' => function($q){
+                            $q->with(['phones' => function ($q) {
                                 $q->select('phoneNumber');
                             }]);
                         }]);
@@ -119,5 +119,18 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function changeStatus()
+    {
+        try {
+            \DB::transaction(function () {
+                CartItem::whereIn('id', explode(',', request('cartItemsArray')))->update(
+                    ['status' => request('status')]
+                );
+            });
+            return response()->json(['allah' => 'perform']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 }

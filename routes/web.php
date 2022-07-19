@@ -54,6 +54,7 @@ Route::post('/stores/get-stores', [StoresController::class, 'getStores']);
 
 Route::prefix('seller/dashboard')->group(function () {
     Route::resource('/orders', SellerOrderController::class);
+    Route::post('/orders/status', [SellerOrderController::class,'changeStatus']);
 });
 
 
