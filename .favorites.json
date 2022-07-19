@@ -88,5 +88,14 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "Wra5C7d9NgEUM6iK"
+    },
+    {
+        "type": "Directory",
+        "name": "e:\\laravel\\GsSnapFood\\app\\Notifications",
+        "parent_id": null,
+        "fsPath": "e:\\laravel\\GsSnapFood\\app\\Notifications",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "qfDV0esTo91FP3L8"
     }
 ]

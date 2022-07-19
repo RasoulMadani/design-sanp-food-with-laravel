@@ -9,6 +9,8 @@ use App\Models\CartItem;
 use App\Http\Resources\Seller\Dashboard\OrderResource;
 use App\Http\Resources\Seller\Dashboard\OrderDetailResource;
 use App\Http\Resources\Seller\Dashboard\OrderDetailUserResource;
+use Notification;
+use App\Notifications\Seller\Dashboard\OrderNotification;
 
 class OrderController extends Controller
 {
@@ -128,6 +130,16 @@ class OrderController extends Controller
                     ['status' => request('status')]
                 );
             });
+            $details = [
+                'greeting' => '1',
+                'body' => '1',
+                'actionText' => '2',
+                'actionURL' => '3',
+                'thanks' => '4',
+                'order_id' => '4'
+            ];
+            Notification::send(auth()->user(), new OrderNotification($details));
+            // $user->notify(new UserNotification(['name' => 'reza']));
             return response()->json(['allah' => 'perform']);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
