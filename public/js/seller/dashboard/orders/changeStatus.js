@@ -1,6 +1,7 @@
 // in the name of allah
 function changeStatus(event) {
     let status = event.dataset.gsStatus;
+    let buyerId = event.dataset.gsBuyerId;
     let cartItems = document.querySelectorAll(".cartItem");
     let cartItemsArray = [];
     [...cartItems].forEach((btn) =>
@@ -56,6 +57,6 @@ function changeStatus(event) {
     };
 
     xhr.send(
-        `_token=${token}&status=${status}&cartItemsArray=${cartItemsArray}`
+        `_token=${token}&status=${status}&cartItemsArray=${cartItemsArray}&buyerId=${buyerId}`
     );
 }

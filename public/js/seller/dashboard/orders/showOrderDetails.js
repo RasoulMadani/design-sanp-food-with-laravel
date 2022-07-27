@@ -44,10 +44,10 @@ function showOrderDetails(event) {
 							<span id="textStatus">تحویل</span>
 						</div>
 						<div class="dropdown-menu dropdown-menu-left">
-							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="check" href="javascript:void(0);">در حال بررسی</a>
-							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="prepare" href="javascript:void(0);">در حال آماده سازی</a>
-							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="send" href="javascript:void(0);">ارسال به مقصد</a>
-							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="delivered" href="javascript:void(0);">تحویل داده شد</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="check" data-gs-buyer-id="${response.userInformation.idBuyer}" href="javascript:void(0);">در حال بررسی</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="prepare" data-gs-buyer-id="${response.userInformation.idBuyer}"  href="javascript:void(0);">در حال آماده سازی</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="send" data-gs-buyer-id="${response.userInformation.idBuyer}"  href="javascript:void(0);">ارسال به مقصد</a>
+							<a class="dropdown-item" onclick="changeStatus(this)" data-gs-status="delivered" data-gs-buyer-id="${response.userInformation.idBuyer}"  href="javascript:void(0);">تحویل داده شد</a>
 						</div>
 					</div>
 				</div>
@@ -202,9 +202,9 @@ function showOrderDetails(event) {
 											<img class="me-3 rounded-circle" src="images/profile/6.jpg" width="90" alt="">
 											<div class="media-body">
 												<h4 class="text-black mb-3">${
-                                                    response.userIformation
+                                                    response.userInformation
                                                         .firstNameUser +
-                                                    response.userIformation
+                                                    response.userInformation
                                                         .lastNameUser
                                                 }</h4>
 												<span class="bgl-info fs-14 text-info p-2 rounded">مشتری</span>
@@ -217,7 +217,7 @@ function showOrderDetails(event) {
 												<path d="M22.9993 17.4712V20.7831C23.0006 21.0906 22.9375 21.3949 22.814 21.6766C22.6906 21.9583 22.5096 22.2112 22.2826 22.419C22.0556 22.6269 21.7876 22.7851 21.4958 22.8836C21.2039 22.9821 20.8947 23.0187 20.5879 22.991C17.1841 22.6219 13.9145 21.4611 11.0418 19.6019C8.36914 17.9069 6.10319 15.6455 4.40487 12.9781C2.53545 10.0981 1.37207 6.81909 1.00898 3.40674C0.981336 3.10146 1.01769 2.79378 1.11572 2.50329C1.21376 2.2128 1.37132 1.94586 1.57839 1.71947C1.78546 1.49308 2.03749 1.31221 2.31843 1.18836C2.59938 1.06451 2.90309 1.0004 3.21023 1.00011H6.52869C7.06551 0.994834 7.58594 1.18456 7.99297 1.53391C8.4 1.88326 8.66586 2.36841 8.74099 2.89892C8.88106 3.9588 9.14081 4.99946 9.5153 6.00106C9.66413 6.39619 9.69634 6.82562 9.60812 7.23847C9.51989 7.65131 9.31494 8.03026 9.01753 8.33042L7.61272 9.73245C9.18739 12.4963 11.4803 14.7847 14.2496 16.3562L15.6545 14.9542C15.9552 14.6574 16.3349 14.4528 16.7486 14.3648C17.1622 14.2767 17.5925 14.3089 17.9884 14.4574C18.992 14.8312 20.0348 15.0904 21.0967 15.2302C21.6341 15.3058 22.1248 15.576 22.4756 15.9892C22.8264 16.4024 23.0128 16.9298 22.9993 17.4712Z" stroke="#566069" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 											<h4 class="mb-0 text-black"><span dir="ltr">${
-                                                response.userIformation
+                                                response.userInformation
                                                     .phoneUser
                                             }</span></h4>
 										</div>
@@ -228,7 +228,7 @@ function showOrderDetails(event) {
 												<path d="M28 13.3333C28 22.6667 16 30.6667 16 30.6667C16 30.6667 4 22.6667 4 13.3333C4 10.1507 5.26428 7.09848 7.51472 4.84805C9.76516 2.59761 12.8174 1.33333 16 1.33333C19.1826 1.33333 22.2348 2.59761 24.4853 4.84805C26.7357 7.09848 28 10.1507 28 13.3333Z" stroke="#3E4954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 												<path d="M16 17.3333C18.2091 17.3333 20 15.5425 20 13.3333C20 11.1242 18.2091 9.33333 16 9.33333C13.7909 9.33333 12 11.1242 12 13.3333C12 15.5425 13.7909 17.3333 16 17.3333Z" stroke="#3E4954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
-											<h4 class="mb-0 text-black">${response.userIformation.addressUser}</h4>
+											<h4 class="mb-0 text-black">${response.userInformation.addressUser}</h4>
 										</div>
 									</div>
 									<div class="card-body">

@@ -15,10 +15,11 @@ class OrderDetailUserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'addressUser' => $this->menu->ghaza->user->addresses[0]->textAddress,
-            'phoneUser' => $this->menu->ghaza->user->phones[0]->phoneNumber,
-            'firstNameUser' => $this->menu->ghaza->user->firstName,
-            'lastNameUser' => $this->menu->ghaza->user->lastName,
+            'idBuyer' => $this->user_id,
+            'addressUser' => $this->user->addresses[0]->textAddress,
+            'phoneUser' => $this->user->phones[0]->phoneNumber,
+            'firstNameUser' => $this->user->firstName,
+            'lastNameUser' => $this->user->lastName,
         ];
     }
 }

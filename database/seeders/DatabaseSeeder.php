@@ -16,11 +16,11 @@ use App\Models\Coupon;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+    /** 
+     * Seed the application's database. 
+     * 
+     * @return void 
+     */ 
     public function run()
     {
         // \App\Models\User::factory(10)->create();
@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
         //     $image->foods()->save($foods[$i]);
         //     $i++;
         // }
+
         // $i = 0;
         // $restaurant = Restaurant::all();
         // $imagesRestaurant = Image::factory(10)->create();
@@ -68,9 +69,9 @@ class DatabaseSeeder extends Seeder
         //     $i++;
         // }
         $users = User::factory(5)->has(
-            Ghaza::factory(5)->has(
+            Ghaza::factory(5)->has( 
                 Category::factory()->suspended()
-            )
+            ) 
         )->hasPhones(1)->hasAddresses(1)->has(
             Restaurant::factory(rand(2, 4))
                 ->has(

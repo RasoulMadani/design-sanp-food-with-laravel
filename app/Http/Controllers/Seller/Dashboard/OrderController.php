@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seller\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\CartItem;
 use App\Http\Resources\Seller\Dashboard\OrderResource;
 use App\Http\Resources\Seller\Dashboard\OrderDetailResource;
@@ -70,23 +71,24 @@ class OrderController extends Controller
                     $q->select('id', 'ghaza_id');
                     $q->with(['ghaza' => function ($q) {
                         $q->select('id', 'name', 'user_id');
-                        $q->with(['user' => function ($q) {
-                            $q->with(['addresses' => function ($q) {
-                                $q->select('textAddress');
-                            }]);
-                            $q->with(['phones' => function ($q) {
-                                $q->select('phoneNumber');
-                            }]);
-                        }]);
                     }]);
                 }]);
             }
-        ])->get(['id', 'user_id']);
-        $coll = OrderDetailResource::collection($cartItem[0]->cartItems);
-        $userIformation = OrderDetailUserResource::collection($cartItem[0]->cartItems)[0];
-        // $coll = $coll->filter()->all();
+        ])->with(['user' => function ($q) {
+            $q->with(['addresses' => function ($q) {
+                $q->select('textAddress');
+            }]);
+            $q->with(['phones' => function ($q) {
+                $q->select('phoneNumber');
+            }]);
+        }])->get(['id', 'user_id']);
 
-        return response()->json(['allah' => 'perform', 'cartItems' => $coll, 'cartItems1' => $cartItem, 'userIformation' => $userIformation]);
+
+        $coll = OrderDetailResource::collection($cartItem[0]->cartItems);
+        $cartItemFilter = $cartItem[0]->cartItems->filter(fn ($cartItem) => $cartItem->menu !== null);
+        $userInformation = OrderDetailUserResource::collection($cartItem);
+
+        return response()->json(['allah' => 'perform', 'cartItems' => $coll, 'cartItems0' => $cartItemFilter, 'cartItems1' => $cartItem, 'userInformation' => $userInformation[0]]);
     }
 
     /**
@@ -138,7 +140,7 @@ class OrderController extends Controller
                 'thanks' => '4',
                 'order_id' => '4'
             ];
-            Notification::send(auth()->user(), new OrderNotification($details));
+            Notification::send(User::find(request('buyerId')), new OrderNotification($details));
             // $user->notify(new UserNotification(['name' => 'reza']));
             return response()->json(['allah' => 'perform']);
         } catch (\Exception $e) {

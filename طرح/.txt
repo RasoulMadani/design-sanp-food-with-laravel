@@ -70,3 +70,12 @@ https://www.youtube.com/watch?v=uhgIhLsQR3o
 
 https://github.com/spatie/opening-hours
 
+
+https://dns.sb/guide/linux/#ubuntu-18-04-and-later
+
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
+
+https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html

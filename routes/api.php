@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiUserController;
 use App\Http\Controllers\Api\ApiRestaurantController;
 use App\Http\Controllers\Api\Auth\ApiLoginController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Seller\Dashboard\OrderController as SellerOrderController;
 
 /*
@@ -47,6 +48,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group([], function () {
         Route::apiResource('/orders', OrderController::class);
         Route::get('/orders/{cart_id}/pay', [OrderController::class, 'pay']);
+    });
+    Route::group([], function () {
+        Route::apiResource('/comments', CommentController::class);
+        Route::post('comments/reply/store', [CommentController::class,'replyStore']);
+        Route::post('comments/get-comments', [CommentController::class,'getComments']);
+        // Route::get('/orders/{cart_id}/pay', [OrderController::class, 'pay']);
     });
 });
 
