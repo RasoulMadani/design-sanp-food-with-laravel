@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        App\Models\Restaurant::class => App\Policies\RestaurantPolicy::class,
     ];
 
     /**
@@ -26,10 +27,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // Implicitly grant "Super-Admin" role all permission checks using can()
-        Gate::before(function ($user, $ability) {
-            if ($user->hasRole('Super-Admin')) {
-                return true;
-            }
-        });
+        // Gate::before(function ($user, $ability) {
+        //     if ($user->hasRole('Super-Admin')) {
+        //         return true;
+        //     }
+        // });
     }
 }

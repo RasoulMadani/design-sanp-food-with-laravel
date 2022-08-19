@@ -48,13 +48,15 @@ Route::post('/seller/dashboard/add-coupon/save-coupon-for-add-to-menu', [MenuCon
 
 Route::post('/seller/dashboard/create-menu/get-food-for-add', [MenuController::class, 'getFoodsForAddTodRestaurant']);
 Route::post('/seller/dashboard/create-menu/save-food-for-add-restaurant', [MenuController::class, 'saveFoodsForAddTodRestaurant']);
-Route::post('/seller/dashboard/edit-restaurant-information/get-restaurant-informations', [RestaurantInformationController::class, 'getRestaurantInformations']);
+Route::get('/seller/dashboard/edit-restaurant-information/get-restaurant-informations', [RestaurantInformationController::class, 'getRestaurantInformations']);
+Route::post('/seller/dashboard/edit-restaurant-information/save-restaurant-informations', [RestaurantInformationController::class, 'saveRestaurantInformations']);
 
 Route::post('/stores/get-stores', [StoresController::class, 'getStores']);
 
 Route::prefix('seller/dashboard')->group(function () {
     Route::resource('/orders', SellerOrderController::class);
+    Route::resource('/edit-restaurant-information', RestaurantInformationController::class);
+    Route::post('/orders/status', [SellerOrderController::class,'changeStatus']);
     Route::post('/orders/status', [SellerOrderController::class,'changeStatus']);
 });
-
 

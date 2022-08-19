@@ -84,3 +84,8 @@ https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php
 https://sokanacademy.com/plus/mhfereydouni/%DB%B6%DB%B5-%D8%B3%D9%88%D8%A7%D9%84-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%85%D8%B5%D8%A7%D8%AD%D8%A8%D9%87-%DA%A9%D8%A7%D8%B1%DB%8C-%D9%84%D8%A7%D8%B1%D8%A7%D9%88%D9%84-%D9%82%D8%B3%D9%85%D8%AA-%D8%A7%D9%88%D9%84
 
 
+https://tighten.com/blog/app-key-and-you/
+https://medium.com/devsondevs/gitflow-workflow-continuous-integration-continuous-delivery-7f4643abb64f
+https://dev.to/mollynem/git-github--workflow-fundamentals-5496
+سوالات مصاحبه علی بابا
+/pages/{title}

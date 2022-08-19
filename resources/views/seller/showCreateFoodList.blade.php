@@ -1143,7 +1143,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 mb-2">
-                        <div class="form-group">
+                        <divikb class="form-group">
                             <label class="text-label"> بارگزاری عکس غذا *</label>
                             <div>
                                 <a href="javascript:void(0);" class="btn btn-primary light me-1 px-3"
@@ -1186,7 +1186,7 @@
                                 @foreach ($categories as $key => $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
-                            </select>
+                            ui6</select>
                             <div id="categoryFoodValidationMessage" class="invalid-feedback">
                                 ....
                             </div>
@@ -1198,7 +1198,7 @@
                             type="button" class="btn btn-primary mb-2 ml-2">ارسال</button>
                     </div>
                 </div>
-            </div>
+            </div>opi
         </div>
         <!--**********************************
             Content body end
@@ -1209,8 +1209,8 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>آرزو حسینی 2022 </p>
-            </div>
+                <p>رسول مدنی 1401 </p>
+            </div>,
         </div>
         <!--**********************************
             Footer end
@@ -1219,10 +1219,6 @@
     </div>
     <!--**********************************
         Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
     ***********************************-->
     <!-- Required vendors -->
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
@@ -1234,7 +1230,7 @@
     <!-- Apex Chart -->
     <script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>
 
-    <!-- Dashboard 1 -->
+    <!-- Dashboaroik.,i52md 1 -->
     <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
     <script src="{{ asset('js/seller/dashboard/newFood/validationNewFoodForm.js') }}"></script>
     <script src="{{ asset('js/seller/dashboard/newFood/saveNewFood.js') }}"></script>

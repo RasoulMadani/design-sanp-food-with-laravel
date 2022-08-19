@@ -49,6 +49,6 @@ function showCreateCouponForm() {
                 </form>
             </div>
         </div>
-    </div>`;
+    </div>`;mainDiv
     document.getElementById("x6-2").innerHTML = htmlElement;
 }

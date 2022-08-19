@@ -20,7 +20,23 @@
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/LineIcons.css') }}" rel="stylesheet">
+    <link href="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.css" rel="stylesheet" type="text/css">
+    <script src="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
+    <style>
+        .panel {
+            overflow: scroll;
+            margin-left: 10px;
+            margin-top: 10px;
+            width: fit-content;
+            background-color: aliceblue;
+            opacity: 0.9;
+            border: 3px solid #4C3FE4;
+            padding: 10px;
+            position: absolute;
+            z-index: 2;
+        }
 
+    </style>
 </head>
 
 <body>
@@ -956,9 +972,12 @@
                             <li><a href="customer-list.html">لیست مشتریان</a></li>
                             {{-- <li onclick="showCreateFoodList(this)"><a href="javascript:void()">ایجاد غذای جدید</a></li> --}}
                             <li><a href="{{ route('seller.dashboard.showCreateFoodList') }}">ایجاد غذای جدید</a></li>
-                            <li onclick="showRestaurants(this)"><a href="javascript:void()">ساخت منوی غذایی رستوران</a></li>
-                            <li onclick="showRestaurantsForAddPersent()"><a href="javascript:void()">ایجاد تخفیف روی غذا</a></li>
-                            <li onclick="showRestaurantsForEditInformations()"><a href="javascript:void()">ویرایش اطلاعات رستوران</a></li>
+                            <li onclick="showRestaurants(this)"><a href="javascript:void()">ساخت منوی غذایی رستوران</a>
+                            </li>
+                            <li onclick="showRestaurantsForAddPersent()"><a href="javascript:void()">ایجاد تخفیف روی
+                                    غذا</a></li>
+                            <li onclick="showRestaurantsForEditInformations()"><a href="javascript:void()">ویرایش
+                                    اطلاعات رستوران</a></li>
                             <li onclick="showRestaurantsForOrders()"><a href="javascript:void()">نمایش سفارشات</a></li>
                         </ul>
                     </li>
@@ -1963,7 +1982,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>آرزو حسینی 2022 </p>
+                <p>رسول مدنی 1401</p>
             </div>
         </div>
         <!--**********************************
@@ -2002,13 +2021,16 @@
     <script src="{{ asset('js\seller\dashboard\addPersent\showRestaurantsForAddPersent.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\addPersent\getRestaurantFoodForAddPersent.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\addPersent\saveAddCouponToFood.js') }}"></script>
-    <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\showRestaurantsForEditInformations.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\showRestaurantsForEditInformations.js') }}">
+    </script>
     <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\getRestaurantIformations.js') }}"></script>
+    <script src="{{ asset('js\seller\dashboard\editRestaurantInformations\saveRestaurantInformations.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\showRestaurantsForOrders.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\showOrders.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\showOrderDetails.js') }}"></script>
     <script src="{{ asset('js\seller\dashboard\orders\changeStatus.js') }}"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js\seller\dashboard\map\server.js') }}"></script>
 </body>
 
 </html>
